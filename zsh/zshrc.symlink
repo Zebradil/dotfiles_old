@@ -1,0 +1,130 @@
+autoload -U zmv
+
+# OH-MY-ZSH
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME=""
+HIST_STAMPS="yyyy-mm-dd"
+# for common aliases see .oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh
+plugins=(git docker-machine taskwarrior osx history colored-man-pages aws)
+source $ZSH/oh-my-zsh.sh
+#END OH-MY-ZSH
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+
+#bindkey -e
+#export KEYTIMEOUT=1
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+alias grep='ggrep'
+alias G='| ggrep'
+
+alias exal='exa --group-directories-first'
+alias l='exal -l'
+alias lt='exal -ls created'
+alias la='exal -la'
+alias lg='exal -la --git'
+
+alias cat='bat'
+
+function updatepip {
+    PIP="pip${1}"
+    for p in $(${PIP} list -o --format freeze | cut -d'=' -f1);
+    do
+        ${PIP} install -U $p;
+    done
+}
+
+# User configuration
+
+export PATH="$HOME/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export EDITOR='vim'
+
+setopt extended_glob
+
+
+export PATH=/usr/local/sbin:$PATH
+export PATH=/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+export PATH=$PATH:~/.composer/vendor/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:/Users/glashevich/Library/Python/3.7/bin
+
+
+# custom aliases
+alias gmerge='( read branch && git pull && git merge origin/$branch -m "Merge $branch → $(git symbolic-ref --short -q HEAD)" && git push ) <<<'
+alias gship='( gmerge && git push origin :$branch ) <<<'
+
+alias cpdiff='git diff --color | iconv -f cp1251 -t utf8 | less -r'
+alias gdwr="git diff --word-diff-regex='[^[:space:]]'"
+
+alias tru='trans en:ru'
+alias ten='trans ru:en'
+alias пер='trans ru:en'
+
+alias brews='brew list -1'
+alias bubc='brew upgrade && brew cleanup'
+alias bubo='brew update && brew outdated'
+
+alias t='task'
+
+alias touch='( read p; d=$(dirname $p); mkdir -p $d && touch $p ) <<<'
+
+alias dontgiveup='( read p; until eval $p; do sleep 1; done ) <<<'
+
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+alias cleanup='find . -name "*~" -type f -print -exec rm -f {} \;'
+
+# identities
+[[ $( ssh-add -l | fgrep -c 76vTs0okk4VxSD/KpxVNRkhTXz18j/6SvwDt76qdmTs ) -ne 0 ]] || ssh-add ~/.ssh/notebook-rsa
+
+# POWERLINE
+source /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+if ! pgrep -f powerline-daemon > /dev/null; then powerline-daemon; fi
+
+# added by travis gem
+[ -f /Users/german/.travis/travis.sh ] && source /Users/german/.travis/travis.sh
+
+# Exercism completion
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  . ~/.config/exercism/exercism_completion.zsh
+fi
+
+# coreutils utilities
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# Hadoop
+PATH="${PATH}:${HOME}/program/oozie-5.1.0/client/src/main/bin"
+HADOOP_CONF_DIR="/usr/local/Cellar/hadoop/3.1.1/hadoop-conf"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+export GITHUB_TOKEN=65686638ec47088046e642f4380d3f02ddffc364
+
+source $HOME/.cargo/env
+
+# added by travis gem
+[ -f /Users/glashevich/.travis/travis.sh ] && source /Users/glashevich/.travis/travis.sh
+
+# google cloud sdk
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+. /usr/local/miniconda3/etc/profile.d/conda.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

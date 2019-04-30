@@ -1,0 +1,74 @@
+{
+	"segments": {
+		"left": [
+            {
+                "function": "powerline.segments.common.time.date",
+                "args": {
+                    "format": "%X"
+                }
+			},
+            {
+                "function": "powerline.segments.common.sys.system_load",
+				"priority": 60,
+                "args": {
+                    "short": true,
+                    "threshold_bad": 4
+                }
+            },
+			{
+				"function": "powerline.segments.shell.mode"
+			},
+			{
+				"function": "powerline.segments.common.net.hostname",
+				"priority": 10
+			},
+			{
+				"function": "powerline.segments.common.env.user",
+				"priority": 30,
+                "args": {
+                    "hide_user": "german"
+                }
+			},
+			{
+				"function": "powerline.segments.common.env.virtualenv",
+				"priority": 50
+			},
+			{
+				"function": "powerline.segments.shell.cwd",
+				"priority": 10
+			},
+			{
+				"function": "powerline.segments.shell.jobnum",
+				"priority": 20
+			}
+		],
+		"right": [
+			{
+				"function": "powerline.segments.shell.last_pipe_status",
+				"priority": 10
+			},
+			{
+				"function": "powerline_gitstatus.gitstatus",
+				"priority": 40
+			},
+			{
+				"function": "powerline_taskwarrior.next_task",
+				"priority": 70,
+                "args": {
+                    "description_length": 40
+                }
+			},
+			{
+				"function": "powerline_taskwarrior.active_task",
+				"priority": 70,
+                "args": {
+                    "description_length": 40
+                }
+			},
+			{
+				"function": "powerline_taskwarrior.context",
+				"priority": 70
+            }
+		]
+	}
+}
