@@ -114,8 +114,6 @@ HADOOP_CONF_DIR="/usr/local/Cellar/hadoop/3.1.1/hadoop-conf"
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
-export GITHUB_TOKEN=65686638ec47088046e642f4380d3f02ddffc364
-
 source $HOME/.cargo/env
 
 # added by travis gem
