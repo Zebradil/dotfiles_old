@@ -1,74 +1,107 @@
 {
-	"segments": {
-		"left": [
-            {
-                "function": "powerline.segments.common.time.date",
-                "args": {
-                    "format": "%X"
-                }
-			},
-            {
-                "function": "powerline.segments.common.sys.system_load",
-				"priority": 60,
-                "args": {
-                    "short": true,
-                    "threshold_bad": 4
-                }
+  "segments": {
+    "above": [
+      {
+        "left": [
+          {
+            "args": {
+              "format": "%X"
             },
-			{
-				"function": "powerline.segments.shell.mode"
-			},
-			{
-				"function": "powerline.segments.common.net.hostname",
-				"priority": 10
-			},
-			{
-				"function": "powerline.segments.common.env.user",
-				"priority": 30,
-                "args": {
-                    "hide_user": "german"
-                }
-			},
-			{
-				"function": "powerline.segments.common.env.virtualenv",
-				"priority": 50
-			},
-			{
-				"function": "powerline.segments.shell.cwd",
-				"priority": 10
-			},
-			{
-				"function": "powerline.segments.shell.jobnum",
-				"priority": 20
-			}
-		],
-		"right": [
-			{
-				"function": "powerline.segments.shell.last_pipe_status",
-				"priority": 10
-			},
-			{
-				"function": "powerline_gitstatus.gitstatus",
-				"priority": 40
-			},
-			{
-				"function": "powerline_taskwarrior.next_task",
-				"priority": 70,
-                "args": {
-                    "description_length": 40
-                }
-			},
-			{
-				"function": "powerline_taskwarrior.active_task",
-				"priority": 70,
-                "args": {
-                    "description_length": 40
-                }
-			},
-			{
-				"function": "powerline_taskwarrior.context",
-				"priority": 70
-            }
-		]
-	}
+            "function": "powerline.segments.common.time.date"
+          },
+          {
+            "args": {
+              "short": true,
+              "threshold_bad": 4
+            },
+            "function": "powerline.segments.common.sys.system_load",
+            "priority": 60
+          },
+          {
+            "function": "powerline.segments.shell.mode"
+          },
+          {
+            "function": "powerline.segments.common.net.hostname",
+            "priority": 10
+          },
+          {
+            "args": {
+              "hide_user": "glashevich"
+            },
+            "function": "powerline.segments.common.env.user",
+            "priority": 30
+          },
+          {
+            "function": "powerline.segments.common.env.virtualenv",
+            "priority": 50
+          },
+          {
+            "function": "powerline.segments.shell.cwd",
+            "priority": 10
+          },
+          {
+            "function": "powerline.segments.shell.jobnum",
+            "priority": 20
+          },
+          {
+            "draw_hard_divider": false,
+            "draw_soft_divider": false,
+            "highlight_groups": [
+              "background"
+            ],
+            "type": "string",
+            "width": "auto"
+          }
+        ],
+        "right": [
+          {
+            "function": "powerline.segments.shell.last_pipe_status",
+            "priority": 10
+          },
+          {
+            "function": "powerline_gitstatus.gitstatus",
+            "priority": 40
+          }
+        ]
+      }
+    ],
+    "left": [
+      {
+        "type": "string",
+        "contents": "→",
+        "highlight_groups": [
+          "cwd"
+        ]
+      }
+    ],
+    "right": [
+      {
+        "function": "powerkube.context",
+        "priority": 30,
+        "args": {
+          "show_cluster": true,
+          "show_namespace": true,
+          "show_user": true,
+          "alert_namespaces": [
+            "data-prod",
+            "infra-prod"
+          ]
+        }
+      },
+      {
+        "function": "powerline.segments.common.env.environment",
+        "priority": 10,
+        "args": {
+          "variable": "DOCKER_MACHINE_NAME"
+        }
+      },
+      {
+        "function": "powerline.segments.common.wthr.weather",
+        "priority": 10,
+        "args": {
+          "unit": "C"
+        }
+      }
+    ]
+  }
 }
