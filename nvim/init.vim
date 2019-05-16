@@ -30,6 +30,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'junegunn/vim-github-dashboard'
 
+  " Colorschemes
+  Plug 'chriskempson/base16-vim'
 
   " Distruction-free writing
   Plug 'junegunn/goyo.vim'
@@ -39,6 +41,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Colorize matching parenthesis
   Plug 'luochen1990/rainbow'
+
+  " Extended suport for matching parenthesis and words
+  Plug 'andymass/vim-matchup'
 
   Plug 'vim-airline/vim-airline'
 
@@ -83,6 +88,9 @@ set cursorline
 set number
 set relativenumber
 set noshowmode
+set termguicolors
+
+colorscheme base16-default-dark
 
 set exrc
 set secure
@@ -97,8 +105,14 @@ set laststatus=2
 set textwidth=120
 set updatetime=100
 
-set grepprg=rg\ --no-heading\ -n
-"
+" Jump to the last position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
+endif
+
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
@@ -111,14 +125,22 @@ let g:netrw_altv = 1
 set autochdir
 
 let g:airline_powerline_fonts = 1
-"let g:rainbow_active = 1
+let g:rainbow_active = 0
 let g:deoplete#enable_at_startup = 1
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/home/zebradil/.local/bin/pyls'],
-    \ 'php': ['php', '~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
-    \ }
+if has('mac')
+    let g:LanguageClient_serverCommands = {
+        \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+        \ 'python': ['~/Library/Python/3.7/bin/pyls'],
+        \ 'php': ['php', '~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
+        \ }
+else
+    let g:LanguageClient_serverCommands = {
+        \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+        \ 'python': ['~/.local/bin/pyls'],
+        \ 'php': ['php', '~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
+        \ }
+endif
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
@@ -133,6 +155,12 @@ let g:LanguageClient_loggingFile = '/tmp/lsp.log'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+" for .hql files
+au BufNewFile,BufRead *.hql set filetype=hive expandtab
+
+" for .q files
+au BufNewFile,BufRead *.q set filetype=hive expandtab
 
 " Initially added for vim-go plugin
 filetype plugin indent on
@@ -160,3 +188,12 @@ let g:ale_fixers = {
 \   'python': ['black', 'isort'],
 \   'scss': ['prettier'],
 \}
+
+let g:ale_linters = {'python': ['flake8']}
+let g:ale_python_flake8_options = '--max-line-length=120'
+let g:ale_python_black_options = '-l120'
+
+" Disabling hiding stuff in Markdown files
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
