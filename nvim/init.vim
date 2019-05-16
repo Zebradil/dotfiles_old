@@ -57,6 +57,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'rust-lang/rust.vim'
   "Plug 'lumiliet/vim-twig'
   "Plug 'cespare/vim-toml'
+  " Plug 'zebradil/hive.vim'
   Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   Plug 'Konfekt/vim-DetectSpellLang'
 
