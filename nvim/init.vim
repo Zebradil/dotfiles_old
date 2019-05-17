@@ -61,8 +61,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   Plug 'Konfekt/vim-DetectSpellLang'
 
+if !has('mac')
   " Automatic layout switcher
   Plug 'lyokha/vim-xkbswitch'
+endif
 
   " Language pack
   Plug 'sheerun/vim-polyglot'
