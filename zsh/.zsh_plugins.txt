@@ -1,0 +1,7 @@
+unixorn/git-extra-commands
+mdumitru/git-aliases
+zdharma/history-search-multi-word
+hcgraf/zsh-sudo
+robbyrussell/oh-my-zsh path:plugins/docker-machine
+tmuxinator/tmuxinator path:completion
+
