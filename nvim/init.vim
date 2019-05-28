@@ -57,7 +57,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'rust-lang/rust.vim'
   "Plug 'lumiliet/vim-twig'
   "Plug 'cespare/vim-toml'
-  " Plug 'zebradil/hive.vim'
+  Plug 'zebradil/hive.vim'
   Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   Plug 'Konfekt/vim-DetectSpellLang'
 
@@ -98,7 +98,7 @@ colorscheme base16-default-dark
 set exrc
 set secure
 
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+"set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set autoindent
 set smartindent
 set expandtab
@@ -125,7 +125,7 @@ set hidden
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 " Change directory to the current buffer when opening files.
-set autochdir
+" set autochdir
 
 let g:airline_powerline_fonts = 1
 let g:rainbow_active = 0
@@ -148,12 +148,11 @@ endif
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 "autocmd BufWritePre *.py :call LanguageClient#textDocument_formatting_sync()
 
 " let g:LanguageClient_loggingLevel = 'DEBUG'
-let g:LanguageClient_loggingFile = '/tmp/lsp.log'
+let g:LanguageClient_loggingFile = '/tmp/vim-lsp.log'
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -161,7 +160,6 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " for .hql files
 au BufNewFile,BufRead *.hql set filetype=hive expandtab
-
 " for .q files
 au BufNewFile,BufRead *.q set filetype=hive expandtab
 
@@ -200,3 +198,5 @@ let g:ale_python_black_options = '-l120'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+
+let g:vim_markdown_frontmatter = 1
