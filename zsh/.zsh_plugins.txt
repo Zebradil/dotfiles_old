@@ -4,4 +4,6 @@ zdharma/history-search-multi-word
 hcgraf/zsh-sudo
 robbyrussell/oh-my-zsh path:plugins/docker-machine
 tmuxinator/tmuxinator path:completion
-
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
