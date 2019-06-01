@@ -28,8 +28,11 @@ compinit
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins.txt
+if [ ! -f ~/.zsh_plugins.sh -a -f ~/.zsh_plugins.txt ];
+then
+    antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+fi
+[ -f ~/.zsh_plugins.sh ] && source ~/.zsh_plugins.sh
 
 export EDITOR='nvim'
 
