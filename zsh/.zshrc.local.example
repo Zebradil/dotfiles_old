@@ -1,0 +1,13 @@
+powerline-daemon -q
+. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+. ~/development/projects/taskwarrior-hooks/taskupd.sh
+
+source /usr/bin/aws_zsh_completer.sh
+
+# identities
+[[ $( ssh-add -l | fgrep -c 76vTs0okk4VxSD/KpxVNRkhTXz18j/6SvwDt76qdmTs ) -ne 0 ]] || ssh-add ~/.ssh/notebook-rsa
+
+export JAVA_HOME=/usr/lib/jvm/default
+export AWS_HOME='/home/zebradil/.aws'
+
