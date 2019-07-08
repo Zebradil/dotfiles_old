@@ -4,32 +4,11 @@
       {
         "left": [
           {
-            "args": {
-              "format": "%X"
-            },
-            "function": "powerline.segments.common.time.date"
-          },
-          {
-            "args": {
-              "short": true,
-              "threshold_bad": 4
-            },
-            "function": "powerline.segments.common.sys.system_load",
-            "priority": 60
-          },
-          {
             "function": "powerline.segments.shell.mode"
           },
           {
             "function": "powerline.segments.common.net.hostname",
             "priority": 10
-          },
-          {
-            "args": {
-              "hide_user": "zebradil"
-            },
-            "function": "powerline.segments.common.env.user",
-            "priority": 30
           },
           {
             "function": "powerline.segments.common.env.virtualenv",
