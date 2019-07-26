@@ -124,6 +124,7 @@ set hidden
 " file with :vsplit to the right of the browser.
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
+let g:netrw_winsize=30
 " Change directory to the current buffer when opening files.
 " set autochdir
 
