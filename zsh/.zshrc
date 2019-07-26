@@ -62,6 +62,13 @@ alias cleanup='find . -name "*~" -print -exec rm -f {} \;'
 alias pbcopy="xclip -selection c"
 alias pbpaste="xclip -selection clipboard -o"
 
+alias tf="terraform"
+
+alias k="kubectl --insecure-skip-tls-verify"
+alias kc="kubectx"
+alias kn="kubens"
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+
 export PATH="${PATH}:$HOME/.local/bin"
 export PATH="${PATH}:$HOME/.cargo/bin"
 export PATH="${PATH}:$HOME/go/bin"
