@@ -87,6 +87,8 @@ endif
   Plug 'robertbasic/vim-hugo-helper'
 call plug#end()
 
+set mouse=a
+
 set cursorline
 set number
 set relativenumber
