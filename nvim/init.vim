@@ -67,6 +67,7 @@ endif
 
   " Language pack
   Plug 'sheerun/vim-polyglot'
+  Plug 'towolf/vim-helm'
 
   " Python
   Plug 'vim-scripts/indentpython.vim'
