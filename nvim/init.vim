@@ -50,7 +50,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
   "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -110,6 +109,8 @@ set laststatus=2
 set textwidth=120
 set updatetime=100
 
+let mapleader=" "
+
 " Jump to the last position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -157,10 +158,6 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " let g:LanguageClient_loggingLevel = 'DEBUG'
 let g:LanguageClient_loggingFile = '/tmp/vim-lsp.log'
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-
 " for .hql files
 au BufNewFile,BufRead *.hql set filetype=hive expandtab
 " for .q files
@@ -203,3 +200,9 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 
 let g:vim_markdown_frontmatter = 1
+
+nmap <leader>f :Files<cr>|     " fuzzy find files in the working directory (where you launched Vim from)
+nmap <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
+nmap <leader>b :Buffers<cr>|   " fuzzy find an open buffer
+nmap <leader>r :Rg |           " fuzzy find text in the working directory
+nmap <leader>c :Commands<cr>|  " fuzzy find Vim commands (like Ctrl-Shift-P in Sublime/Atom/VSC)
