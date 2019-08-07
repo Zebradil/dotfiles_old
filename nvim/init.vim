@@ -110,6 +110,8 @@ set laststatus=2
 set textwidth=120
 set updatetime=100
 
+set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+
 let mapleader=" "
 
 " Jump to the last position
