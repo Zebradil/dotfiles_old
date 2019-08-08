@@ -45,6 +45,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Extended suport for matching parenthesis and words
   Plug 'andymass/vim-matchup'
 
+  " Highlight word under the cursor
+  Plug 'RRethy/vim-illuminate'
+
   Plug 'vim-airline/vim-airline'
 
   Plug 'junegunn/vim-easy-align'
@@ -67,6 +70,8 @@ endif
 
   " Language pack
   Plug 'sheerun/vim-polyglot'
+
+  " Helm
   Plug 'towolf/vim-helm'
 
   " Python
@@ -94,6 +99,9 @@ set number
 set relativenumber
 set noshowmode
 set termguicolors
+
+" Set word highlight style to underline
+hi illuminatedWord cterm=underline gui=underline
 
 colorscheme base16-default-dark
 
