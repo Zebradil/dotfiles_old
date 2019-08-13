@@ -67,7 +67,7 @@ alias tf="terraform"
 alias k="kubectl --insecure-skip-tls-verify"
 alias kc="kubectx"
 alias kn="kubens"
-if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh | sed '/"-f"/d'); fi
 
 export PATH="${PATH}:$HOME/.local/bin"
 export PATH="${PATH}:$HOME/.cargo/bin"
