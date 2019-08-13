@@ -22,6 +22,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Interactive git diff
   Plug 'airblade/vim-gitgutter'
 
+  " Better diff options
+  Plug 'chrisbra/vim-diff-enhanced'
+
   " Git-wrapper
   Plug 'tpope/vim-fugitive'
 
