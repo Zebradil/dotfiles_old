@@ -104,7 +104,7 @@ set noshowmode
 set termguicolors
 
 " Set word highlight style to underline
-hi illuminatedWord cterm=underline gui=underline
+hi link illuminatedWord Visual
 
 colorscheme base16-default-dark
 
