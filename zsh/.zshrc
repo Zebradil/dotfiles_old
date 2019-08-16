@@ -97,7 +97,7 @@ export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 if [ $commands[npm] ]; then
     NPM_PACKAGES="${HOME}/.npm-packages"
     export PATH="$NPM_PACKAGES/bin:$PATH"
-    npm config set prefix $NPM_PACKAGES
+    NO_UPDATE_NOTIFIER=1 npm config set prefix $NPM_PACKAGES
 fi
 # Unset manpath so we can inherit from /etc/manpath via the `manpath` command
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
