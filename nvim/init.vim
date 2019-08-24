@@ -118,7 +118,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set laststatus=2
-set textwidth=120
 set updatetime=100
 
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
@@ -205,8 +204,6 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {'python': ['flake8']}
-let g:ale_python_flake8_options = '--max-line-length=120'
-let g:ale_python_black_options = '-l120'
 
 " Disabling hiding stuff in Markdown files
 let g:vim_markdown_folding_disabled = 1
