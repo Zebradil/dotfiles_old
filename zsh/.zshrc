@@ -76,6 +76,10 @@ alias kc="kubectx"
 alias kn="kubens"
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh | sed '/"-f"/d'); fi
 
+if [ $commands[stern] ]; then source <(stern --completion zsh); fi
+
+if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
+
 export PATH="${PATH}:$HOME/.local/bin"
 export PATH="${PATH}:$HOME/.cargo/bin"
 export PATH="${PATH}:$HOME/go/bin"
