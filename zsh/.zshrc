@@ -19,6 +19,16 @@ setopt appendhistory     #Append history to the history file (no overwriting)
 setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
 
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+# Emacs style
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+# Vi style:
+# zle -N edit-command-line
+# bindkey -M vicmd v edit-command-line
+
 # Lines configured by zsh-newuser-install
 setopt autocd extendedglob
 bindkey -e
@@ -68,6 +78,7 @@ alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias cleanup='find . -name "*~" -print -exec rm -f {} \;'
 alias pbcopy="xclip -selection c"
 alias pbpaste="xclip -selection clipboard -o"
+alias j="autojump"
 
 alias tf="terraform"
 
