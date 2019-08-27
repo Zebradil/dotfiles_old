@@ -130,7 +130,7 @@ if has("autocmd")
     \| exe "normal! g`\"" | endif
 endif
 
-set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ -uu
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
