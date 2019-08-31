@@ -118,4 +118,53 @@ fi
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
+SPACESHIP_PROMPT_ORDER=(
+    time          # Time stampts section
+    user          # Username section
+    dir           # Current directory section
+    host          # Hostname section
+    git           # Git section (git_branch + git_status)
+    # hg            # Mercurial section (hg_branch  + hg_status)
+    package       # Package version
+    # node          # Node.js section
+    # ruby          # Ruby section
+    # elm           # Elm section
+    # elixir        # Elixir section
+    # xcode         # Xcode section
+    # swift         # Swift section
+    golang        # Go section
+    php           # PHP section
+    rust          # Rust section
+    # haskell       # Haskell Stack section
+    # julia         # Julia section
+    docker        # Docker section
+    aws           # Amazon Web Services section
+    venv          # virtualenv section
+    # conda         # conda virtualenv section
+    pyenv         # Pyenv section
+    # dotnet        # .NET section
+    # ember         # Ember.js section
+    # kubecontext   # Kubectl context section
+    terraform     # Terraform workspace section
+    exec_time     # Execution time
+    line_sep      # Line break
+    battery       # Battery level and status
+    vi_mode       # Vi-mode indicator
+    jobs          # Background jobs indicator
+    exit_code     # Exit code section
+    char          # Prompt character
+)
+
+SPACESHIP_RPROMPT_ORDER=(docker_machine)
+
+spaceship_docker_machine() {
+  [[ -z $DOCKER_MACHINE_NAME ]] && return
+
+  spaceship::section \
+    "$SPACESHIP_DOCKER_COLOR" \
+    "$SPACESHIP_DOCKER_PREFIX" \
+    "${SPACESHIP_DOCKER_SYMBOL} via ($DOCKER_MACHINE_NAME)" \
+    "$SPACESHIP_DOCKER_SUFFIX"
+}
+
 . $HOME/.zshrc.local
