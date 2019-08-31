@@ -175,6 +175,8 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " let g:LanguageClient_loggingLevel = 'DEBUG'
 let g:LanguageClient_loggingFile = '/tmp/vim-lsp.log'
 
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 " for .hql files
 au BufNewFile,BufRead *.hql set filetype=hive expandtab
 " for .q files
@@ -221,6 +223,7 @@ nmap <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
 nmap <leader>b :Buffers<cr>|   " fuzzy find an open buffer
 nmap <leader>r :Rg |           " fuzzy find text in the working directory
 nmap <leader>c :Commands<cr>|  " fuzzy find Vim commands (like Ctrl-Shift-P in Sublime/Atom/VSC)
+nmap <leader>h :History:<cr>|  " fuzzy find Vim commands history
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
