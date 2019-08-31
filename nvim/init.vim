@@ -39,6 +39,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Distruction-free writing
   Plug 'junegunn/goyo.vim'
 
+  " Enhancements for netrw
+  Plug 'tpope/vim-vinegar'
+
   " Highlight current text block
   Plug 'junegunn/limelight.vim'
 
