@@ -78,7 +78,6 @@ alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias cleanup='find . -name "*~" -print -exec rm -f {} \;'
 alias pbcopy="xclip -selection c"
 alias pbpaste="xclip -selection clipboard -o"
-alias j="autojump"
 
 alias tf="terraform"
 
