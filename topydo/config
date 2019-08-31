@@ -81,7 +81,7 @@ focus_background_color = 232
 ;listcontexts = lscon
 
 [columns]
-column_width = 40
+column_width = 60
 
 [column_keymap]
 ; Keymap configuration for column-mode
