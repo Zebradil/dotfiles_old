@@ -104,7 +104,7 @@ export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'other page faults:         %R'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd -H'
+export FZF_DEFAULT_COMMAND='fd -u'
 
 ######################
 # Local npm packages #
