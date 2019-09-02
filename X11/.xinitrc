@@ -1,1 +1,1 @@
-xbindkeys
+xbindkeys -p
