@@ -90,10 +90,10 @@ if [ $commands[stern] ]; then source <(stern --completion zsh); fi
 
 if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
 
-export PATH="${PATH}:$HOME/.local/bin"
-export PATH="${PATH}:$HOME/.cargo/bin"
-export PATH="${PATH}:$HOME/go/bin"
-export PATH="${PATH}:$HOME/bin"
+export PATH="$HOME/.local/bin:${PATH}"
+export PATH="$HOME/.cargo/bin:${PATH}"
+export PATH="$HOME/go/bin:${PATH}"
+export PATH="$HOME/bin:${PATH}"
 
 export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'avg shared (code):         %X KB'$'\n'\
