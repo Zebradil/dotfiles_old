@@ -18,24 +18,15 @@ setopt HIST_SAVE_NO_DUPS
 setopt appendhistory     #Append history to the history file (no overwriting)
 setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
-
-# Enable Ctrl-x-e to edit command line
-autoload -U edit-command-line
-# Emacs style
-zle -N edit-command-line
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
-# Vi style:
-# zle -N edit-command-line
-# bindkey -M vicmd v edit-command-line
-
-# Lines configured by zsh-newuser-install
 setopt autocd extendedglob
-bindkey -e
-# End of lines configured by zsh-newuser-install
+bindkey -v
+
+autoload -U edit-command-line
+zle -N edit-command-line
+
+bindkey -M vicmd v edit-command-line
 
 # The following lines were added by compinstall
-
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}' 'l:|=* r:|=*' 'r:|[._-]=* r:|=*'
 #zstyle ':completion:*' max-errors 3
