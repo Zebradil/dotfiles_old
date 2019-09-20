@@ -67,8 +67,10 @@ alias touch='( read p; d=$(dirname $p); mkdir -p $d && touch $p ) <<<'
 alias dontgiveup='( read p; until eval $p; do sleep 1; done ) <<<'
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias cleanup='find . -name "*~" -print -exec rm -f {} \;'
-alias pbcopy="xclip -selection c"
-alias pbpaste="xclip -selection clipboard -o"
+if [ ! $commands[pbcopy] ]; then
+  alias pbcopy="xclip -selection c"
+  alias pbpaste="xclip -selection clipboard -o"
+fi
 
 alias tf="terraform"
 
