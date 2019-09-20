@@ -207,9 +207,13 @@ let g:ale_fixers = {
 \   'python': ['black', 'isort'],
 \   'scss': ['prettier'],
 \   'rust': ['rustfmt'],
+\   'go': ['gofmt'],
 \}
 
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {
+\   'python': ['flake8'],
+\   'go': ['golint'],
+\}
 
 " Disabling hiding stuff in Markdown files
 let g:vim_markdown_folding_disabled = 1
