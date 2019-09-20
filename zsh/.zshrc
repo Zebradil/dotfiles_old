@@ -149,7 +149,7 @@ SPACESHIP_PROMPT_ORDER=(
 )
 spaceship_vi_mode_enable
 
-SPACESHIP_RPROMPT_ORDER=(docker_machine)
+SPACESHIP_RPROMPT_ORDER=(docker_machine kubeconfig)
 
 spaceship_docker_machine() {
   [[ -z $DOCKER_MACHINE_NAME ]] && return
@@ -159,6 +159,12 @@ spaceship_docker_machine() {
     "$SPACESHIP_DOCKER_PREFIX" \
     "${SPACESHIP_DOCKER_SYMBOL} via ($DOCKER_MACHINE_NAME)" \
     "$SPACESHIP_DOCKER_SUFFIX"
+}
+
+spaceship_kubeconfig() {
+  [[ -z $KUBECONFIG ]] && return
+
+  spaceship_kubecontext
 }
 
 . $HOME/.zshrc.local
