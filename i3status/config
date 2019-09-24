@@ -16,6 +16,10 @@ order += "volume master"
 order += "battery all"
 order += "tztime local"
 
+cpu_usage {
+        format = " cpu  %usage "
+}
+
 load {
         format = "<span background='#f59335'>  %1min %5min </span>"
 }
