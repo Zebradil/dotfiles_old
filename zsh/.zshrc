@@ -81,6 +81,8 @@ if [ $commands[kubectl] ]; then source <(kubectl completion zsh | sed '/"-f"/d')
 
 if [ $commands[stern] ]; then source <(stern --completion zsh); fi
 
+if [ $commands[hcloud] ]; then source <(hcloud completion zsh); fi
+
 if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
 
 export PATH="$HOME/.local/bin:${PATH}"
