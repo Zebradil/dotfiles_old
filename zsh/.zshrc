@@ -111,6 +111,11 @@ if [ $commands[stern] ]; then source <(stern --completion zsh); fi
 
 if [ $commands[hcloud] ]; then source <(hcloud completion zsh); fi
 
+
+# +=========================+
+# | Direnv                  |
+# +-------------------------+
+
 if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
 
 
