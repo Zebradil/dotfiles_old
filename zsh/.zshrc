@@ -6,6 +6,14 @@
 
 
 # +=========================+
+# | Fuzzy finder            |
+# +-------------------------+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd -u'
+
+
+# +=========================+
 # | History Configuration   |
 # +-------------------------+
 
@@ -102,17 +110,6 @@ fi
 
 
 # +=========================+
-# | Autocompletion          |
-# +-------------------------+
-
-if [ $commands[kubectl] ]; then source <(kubectl completion zsh | sed '/"-f"/d'); fi
-
-if [ $commands[stern] ]; then source <(stern --completion zsh); fi
-
-if [ $commands[hcloud] ]; then source <(hcloud completion zsh); fi
-
-
-# +=========================+
 # | Direnv                  |
 # +-------------------------+
 
@@ -205,14 +202,6 @@ spaceship_kubeconfig() {
 
 
 # +=========================+
-# | Fuzzy finder            |
-# +-------------------------+
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd -u'
-
-
-# +=========================+
 # | Library                 |
 # +-------------------------+
 
@@ -269,6 +258,17 @@ fco_preview() {
         --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
   git checkout $(awk '{print $2}' <<<"$target" )
 }
+
+
+# +=========================+
+# | Autocompletion          |
+# +-------------------------+
+
+if [ $commands[stern] ]; then source <(stern --completion zsh); fi
+
+if [ $commands[hcloud] ]; then source <(hcloud completion zsh); fi
+
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh | sed '/"-f"/d'); fi
 
 
 # +=========================+
