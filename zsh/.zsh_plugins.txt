@@ -1,5 +1,6 @@
 unixorn/git-extra-commands
-mdumitru/git-aliases
+robbyrussell/oh-my-zsh path:lib/git.zsh
+robbyrussell/oh-my-zsh path:plugins/git
 zdharma/history-search-multi-word
 hcgraf/zsh-sudo
 robbyrussell/oh-my-zsh path:plugins/docker-machine
