@@ -94,6 +94,8 @@ endif
   " Autoformat
   Plug 'Chiel92/vim-autoformat'
 
+  Plug 'editorconfig/editorconfig-vim'
+
   Plug 'robertbasic/vim-hugo-helper'
 call plug#end()
 
@@ -203,7 +205,6 @@ let airline#extensions#ale#error_symbol = 'E:'
 let airline#extensions#ale#warning_symbol = 'W:'
 
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black', 'isort'],
 \   'scss': ['prettier'],
 \   'rust': ['rustfmt'],
@@ -214,6 +215,8 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \   'go': ['golint'],
 \}
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 " Disabling hiding stuff in Markdown files
 let g:vim_markdown_folding_disabled = 1
