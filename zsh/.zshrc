@@ -78,7 +78,7 @@ fi
 alias ls='exa'
 alias l='ls -l --group-directories-first --git'
 alias la='l -a'
-alias lt='la -s created'
+alias lt='la -s newest'
 
 alias cat='bat'
 alias tf="terraform"
