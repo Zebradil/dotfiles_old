@@ -19,7 +19,7 @@ floating_modifier $mod
 # autostart
 exec --no-startup-id dropbox start
 exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
-exec --no-startup-id dex -a
+exec --no-startup-id dex -ae i3
 
 # start a terminal
 bindsym $mod+Return exec alacritty
