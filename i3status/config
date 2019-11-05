@@ -50,7 +50,7 @@ wireless wlp4s0 {
 volume master {
         format = "<span background='#ebcb8b'>  %volume </span>"
         format_muted = "<span background='#ebcb8b'>  Muted </span>"
-        device = "default"
+        device = "pulse"
         mixer = "Master"
         mixer_idx = 0
 }
