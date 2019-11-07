@@ -5,7 +5,7 @@
 	email = german.lashevich@gmail.com
 	signingkey = 3446FAE369C9A8B4
 [credential]
-	helper = osxkeychain
+	helper = libsecret
 [core]
 	autocrlf = input
 	pager = less --raw-control-chars
