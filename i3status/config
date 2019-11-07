@@ -59,10 +59,10 @@ battery all {
 	last_full_capacity = true
     format = "<span background='#a3be8c'> %status %percentage %remaining </span>"
     format_down = ""
-        status_bat = ""
-        status_chr = ""
-        status_full = ""
-    status_unk = "Unknown"
+    status_bat = ""
+    status_chr = ""
+    status_full = ""
+    status_unk = "?"
     path = "/sys/class/power_supply/BAT%d/uevent"
     low_threshold = 20
 }
