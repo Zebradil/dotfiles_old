@@ -16,6 +16,12 @@ font pango: Noto Sans, FontAwesome 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Keyboard layout
+exec_always "setxkbmap -layout us,ru \
+                -option 'grp:caps_toggle' \
+                -option 'grp_led:caps' \
+                -option 'misc:typo'"
+
 # autostart
 exec --no-startup-id dropbox start
 exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
