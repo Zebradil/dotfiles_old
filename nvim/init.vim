@@ -154,13 +154,13 @@ let g:deoplete#enable_at_startup = 1
 
 if has('mac')
     let g:LanguageClient_serverCommands = {
-        \ 'rust': ['~/.cargo/bin/rustup', 'run', 'nightly', 'rls'],
+        \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
         \ 'python': ['~/Library/Python/3.7/bin/pyls'],
         \ 'php': ['php', '~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
         \ }
 else
     let g:LanguageClient_serverCommands = {
-        \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+        \ 'rust': ['rustup', 'run', 'stable', 'rls'],
         \ 'python': ['~/.local/bin/pyls'],
         \ 'php': ['php', '~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
         \ }
