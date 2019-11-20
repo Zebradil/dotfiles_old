@@ -272,6 +272,23 @@ if [ $commands[kubectl] ]; then source <(kubectl completion zsh | sed '/"-f"/d')
 
 
 # +=========================+
+# | Gnome keyring           |
+# +-------------------------+
+
+if [ $commands[gnome-keyring-daemon] ];
+then
+    eval $(gnome-keyring-daemon -s)
+    export SSH_AUTH_SOCK
+fi
+
+
+
+GPG_TTY=$(tty)
+export GPG_TTY
+
+
+
+# +=========================+
 # | Local overrides         |
 # +-------------------------+
 
