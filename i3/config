@@ -20,12 +20,14 @@ floating_modifier $mod
 exec_always "setxkbmap -layout us,ru \
                 -option 'grp:caps_toggle' \
                 -option 'grp_led:caps' \
+                -option 'lv3:ralt_switch_multikey' \
                 -option 'misc:typo'"
 
 # autostart
 exec --no-startup-id dropbox start
 exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
 exec --no-startup-id dex -ae i3
+exec_always --no-startup-id /home/zebradil/.cargo/bin/kippschalter
 
 # start a terminal
 bindsym $mod+Return exec alacritty
