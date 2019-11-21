@@ -143,8 +143,9 @@ set hidden
 " Hit enter in the file browser to open the selected
 " file with :vsplit to the right of the browser.
 let g:netrw_browse_split = 4
+let g:netrw_preview = 1
 let g:netrw_altv = 1
-let g:netrw_winsize=30
+let g:netrw_winsize=70
 " Change directory to the current buffer when opening files.
 " set autochdir
 
