@@ -1,3 +1,4 @@
+andrewferrier/fzf-z
 unixorn/git-extra-commands
 robbyrussell/oh-my-zsh path:lib/git.zsh
 robbyrussell/oh-my-zsh path:plugins/git
@@ -6,5 +7,5 @@ hcgraf/zsh-sudo
 robbyrussell/oh-my-zsh path:plugins/docker-machine
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-syntax-highlighting 
+zsh-users/zsh-syntax-highlighting
 denysdovhan/spaceship-prompt

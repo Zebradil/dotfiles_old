@@ -285,6 +285,9 @@ export GPG_TTY
 # +-------------------------+
 
 if [ $commands[fasd] ]; then eval "$(fasd --init auto)"; fi
+export FZFZ_SUBDIR_LIMIT=0
+export FZFZ_RECENT_DIRS_TOOL=fasd
+
 if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
 
 
