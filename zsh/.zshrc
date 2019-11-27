@@ -110,13 +110,6 @@ fi
 
 
 # +=========================+
-# | Direnv                  |
-# +-------------------------+
-
-if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
-
-
-# +=========================+
 # | PATHs                   |
 # +-------------------------+
 
@@ -286,6 +279,13 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 
+
+# +=========================+
+# | Command line hooks      |
+# +-------------------------+
+
+if [ $commands[fasd] ]; then eval "$(fasd --init auto)"; fi
+if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
 
 
 # +=========================+
