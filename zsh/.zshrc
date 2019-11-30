@@ -270,7 +270,7 @@ if [ $commands[kubectl] ]; then source <(kubectl completion zsh | sed '/"-f"/d')
 
 if [ $commands[gnome-keyring-daemon] ];
 then
-    eval $(gnome-keyring-daemon -s)
+    eval $(gnome-keyring-daemon -s --components=gpg,pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK
 fi
 
