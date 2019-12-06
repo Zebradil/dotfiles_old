@@ -163,6 +163,8 @@ else
     let g:LanguageClient_serverCommands = {
         \ 'rust': ['rustup', 'run', 'stable', 'rls'],
         \ 'python': ['~/.local/bin/pyls'],
+        \ 'javascript': ['javascript-typescript-stdio'],
+        \ 'typescript': ['javascript-typescript-stdio'],
         \ 'php': ['php', '~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
         \ }
 endif
