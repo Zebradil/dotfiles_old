@@ -124,6 +124,8 @@ set shiftwidth=4
 set laststatus=2
 set updatetime=100
 
+set linebreak
+
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 
 let mapleader=" "
