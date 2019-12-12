@@ -11,7 +11,7 @@ general {
 order += "load"
 order += "cpu_temperature 0"
 order += "disk /"
-order += "wireless wlp4s0"
+order += "wireless _first_"
 order += "volume master"
 order += "battery all"
 order += "tztime local"
@@ -42,7 +42,7 @@ ethernet enp1s0 {
         format_down = "<span background='#88c0d0'>  Disconnected </span>"
 }
 
-wireless wlp4s0 {
+wireless _first_ {
         format_up = "<span background='#b48ead'>  (%essid - %quality) %ip </span>"
         format_down = "<span background='#b48ead'>  Disconnected </span>"
 }
