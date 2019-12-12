@@ -1,0 +1,13 @@
+[Unit]
+Description=Lock screen on suspend
+Before=sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+[Service]
+User=%I
+Environment=DISPLAY=:0
+Type=forking
+ExecStart=/home/%I/bin/systemd-lock
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=sleep.target suspend.target hibernate.target hybrid-sleep.target
