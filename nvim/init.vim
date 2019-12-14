@@ -19,6 +19,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " [Un]comment lines with gc
   Plug 'tpope/vim-commentary'
 
+  " Abbreviate, substitute, change case
+  Plug 'tpope/vim-abolish'
+
   " Interactive git diff
   Plug 'airblade/vim-gitgutter'
 
@@ -53,6 +56,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Highlight word under the cursor
   Plug 'RRethy/vim-illuminate'
+
+  " Show current context
+  Plug 'wellle/context.vim'
 
   Plug 'vim-airline/vim-airline'
 
