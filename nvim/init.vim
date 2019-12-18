@@ -88,6 +88,9 @@ endif
   " Python
   Plug 'vim-scripts/indentpython.vim'
 
+  " Semantic highlight for CCLS
+  " Plug 'jackguo380/vim-lsp-cxx-highlight'
+
   " Identation
   Plug 'Yggdroot/indentLine'
 
@@ -158,6 +161,7 @@ let g:netrw_winsize=70
 " set autochdir
 
 let g:airline_powerline_fonts = 1
+let g:context_enabled = 0
 let g:rainbow_active = 0
 let g:deoplete#enable_at_startup = 1
 
@@ -170,6 +174,10 @@ if has('mac')
 else
     let g:LanguageClient_serverCommands = {
         \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+        \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+        \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+        \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
+        \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
         \ 'python': ['~/.local/bin/pyls'],
         \ 'javascript': ['javascript-typescript-stdio'],
         \ 'typescript': ['javascript-typescript-stdio'],
@@ -216,6 +224,7 @@ let airline#extensions#ale#error_symbol = 'E:'
 let airline#extensions#ale#warning_symbol = 'W:'
 
 let g:ale_fixers = {
+\   'cpp': ['clangtidy'],
 \   'python': ['black', 'isort'],
 \   'scss': ['prettier'],
 \   'rust': ['rustfmt'],
