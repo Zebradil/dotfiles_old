@@ -27,7 +27,7 @@ exec_always "setxkbmap -layout us,ru \
 exec --no-startup-id dropbox start
 exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
 exec --no-startup-id dex -ae i3
-exec_always --no-startup-id /home/zebradil/.cargo/bin/kippschalter
+exec_always --no-startup-id xkb-switch --i3
 
 # start a terminal
 bindsym $mod+Return exec alacritty
