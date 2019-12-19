@@ -26,14 +26,14 @@ load {
 }
 
 memory {
-    format = "<span background='#93c781'>  %percentage_used | %percentage_free | %percentage_available </span>"
+    format = "<span background='#93c781'>  %used | %free | %available </span>"
     memory_used_method = "memavailable"
     threshold_degraded = "10%"
 }
 
 cpu_temperature 0 {
     format = "<span background='#bf616a'>  %degrees °C </span>"
-    path = "/sys/class/thermal/thermal_zone0/temp"
+    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input"
 }
 
 disk "/" {
@@ -50,7 +50,7 @@ ethernet _first_ {
 }
 
 wireless _first_ {
-        format_up = "<span background='#b48ead'>  (%essid - %quality) %ip </span>"
+        format_up = "<span background='#b48ead'>  (%essid - %quality) </span>"
         format_down = "<span background='#b48ead'>  Disconnected </span>"
 }
 
