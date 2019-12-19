@@ -191,8 +191,18 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+mode "wallpaper" {
+    bindsym $mod+d exec variety --trash
+    bindsym $mod+n exec variety --next
+    bindsym $mod+p exec variety --previous
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Shift+w mode "default"
+}
+bindsym $mod+Shift+w mode "wallpaper"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
