@@ -10,6 +10,7 @@ general {
 
 order += "load"
 order += "cpu_temperature 0"
+order += "memory"
 order += "disk /"
 order += "wireless _first_"
 order += "volume master"
@@ -21,25 +22,31 @@ cpu_usage {
 }
 
 load {
-        format = "<span background='#f59335'>  %1min %5min </span>"
+    format = "<span background='#f59335'>  %1min %5min </span>"
+}
+
+memory {
+    format = "<span background='#93c781'>  %percentage_used | %percentage_free | %percentage_available </span>"
+    memory_used_method = "memavailable"
+    threshold_degraded = "10%"
 }
 
 cpu_temperature 0 {
-        format = "<span background='#bf616a'>  %degrees °C </span>"
-        path = "/sys/class/thermal/thermal_zone0/temp"
+    format = "<span background='#bf616a'>  %degrees °C </span>"
+    path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
 disk "/" {
-        format = "<span background='#fec7cd'>  %avail </span>"
+    format = "<span background='#fec7cd'>  %avail </span>"
 }
 
 disk "/home" {
-        format = "<span background='#a1d569'>  %free Free </span>"
+    format = "<span background='#a1d569'>  %free Free </span>"
 }
 
-ethernet enp1s0 {
-        format_up = "<span background='#88c0d0'>  %ip </span>"
-        format_down = "<span background='#88c0d0'>  Disconnected </span>"
+ethernet _first_ {
+    format_up = "<span background='#88c0d0'>  %ip </span>"
+    format_down = "<span background='#88c0d0'>  Disconnected </span>"
 }
 
 wireless _first_ {
