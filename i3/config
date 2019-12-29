@@ -205,7 +205,7 @@ mode "wallpaper" {
 bindsym $mod+Shift+w mode "wallpaper"
 
 mode "player control" {
-    bindsym Space exec playerctl play-pause
+    bindsym space exec playerctl play-pause
     bindsym n exec playerctl next
     bindsym p exec playerctl previous
 
