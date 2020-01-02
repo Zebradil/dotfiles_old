@@ -25,7 +25,7 @@ exec_always "setxkbmap -layout us,ru \
 
 # autostart
 exec --no-startup-id dropbox start
-exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
+exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id dex -ae i3
 exec_always --no-startup-id xkb-switch --i3
 
