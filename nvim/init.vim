@@ -207,7 +207,8 @@ au BufNewFile,BufRead *.q set filetype=hive expandtab
 filetype plugin indent on
 
 autocmd FileType text,markdown,mail setlocal spell
-let g:guesslang_langs = [ 'en_US', 'ru_RU']
+let g:detectspelllang_langs = {}
+let g:detectspelllang_langs.aspell = ['en_US', 'ru_RU']
 
 " Enable automatic layout switcher
 let g:XkbSwitchEnabled = 1
