@@ -182,6 +182,7 @@ else
         \ 'javascript': ['javascript-typescript-stdio'],
         \ 'typescript': ['javascript-typescript-stdio'],
         \ 'php': ['php', '~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
+        \ 'go': ['gopls'],
         \ }
 endif
 
