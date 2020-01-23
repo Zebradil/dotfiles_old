@@ -95,7 +95,7 @@ endif
   Plug 'Yggdroot/indentLine'
 
   " Editing helpers
-  Plug 'tpope/vim-surround'
+  Plug 'machakann/vim-sandwich'
 
   " Syntax check
   Plug 'w0rp/ale'
