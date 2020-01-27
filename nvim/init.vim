@@ -67,7 +67,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
   "Plug 'rust-lang/rust.vim'
   "Plug 'lumiliet/vim-twig'
   "Plug 'cespare/vim-toml'
