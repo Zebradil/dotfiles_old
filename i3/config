@@ -60,6 +60,32 @@ bindsym XF86AudioStop exec mpc stop
 bindsym XF86MonBrightnessUp   exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
+# I2C brightness control
+# Requires:
+#
+#   # chmod g+rw /dev/i2c-*
+#
+set $mode_i2c_brightness I2C brightness (-, 1-9, 0)
+mode "$mode_i2c_brightness" {
+    bindsym minus exec --no-startup-id ddcutil setvcp 10 0
+    bindsym 1 exec --no-startup-id ddcutil setvcp 10 10
+    bindsym 2 exec --no-startup-id ddcutil setvcp 10 20
+    bindsym 3 exec --no-startup-id ddcutil setvcp 10 30
+    bindsym 4 exec --no-startup-id ddcutil setvcp 10 40
+    bindsym 5 exec --no-startup-id ddcutil setvcp 10 50
+    bindsym 6 exec --no-startup-id ddcutil setvcp 10 60
+    bindsym 7 exec --no-startup-id ddcutil setvcp 10 70
+    bindsym 8 exec --no-startup-id ddcutil setvcp 10 80
+    bindsym 9 exec --no-startup-id ddcutil setvcp 10 90
+    bindsym 0 exec --no-startup-id ddcutil setvcp 10 100
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+b mode "$mode_i2c_brightness"
+
+
 # change focus
 bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
