@@ -11,16 +11,24 @@ set $right l
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: Noto Sans, FontAwesome 10
+font pango: Noto Sans, FontAwesome 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Keyboard layout
+# exec_always "setxkbmap -layout us,ru \
+#                 -option 'grp:caps_toggle' \
+#                 -option 'grp_led:caps' \
+#                 -option 'lv3:ralt_switch_multikey' \
+#                 -option 'misc:typo'"
+
 exec_always "setxkbmap -layout us,ru \
+                -option \
                 -option 'grp:caps_toggle' \
                 -option 'grp_led:caps' \
-                -option 'lv3:ralt_switch_multikey' \
+                -option 'lv3:menu_switch' \
+                -option 'compose:rwin-altgr' \
                 -option 'misc:typo'"
 
 # autostart
@@ -271,6 +279,6 @@ client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f
 
-default_border none
+default_border pixel 1
 floating_maximum_size 1024 x 600
 for_window [floating] move position center
