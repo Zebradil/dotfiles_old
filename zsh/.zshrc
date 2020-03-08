@@ -95,6 +95,15 @@ alias tru='trans en:ru'
 alias ten='trans ru:en'
 alias пер='trans ru:en'
 
+alias truen='trans ru:en'
+alias tenru='trans en:ru'
+
+alias tende='trans en:de'
+alias tdeen='trans de:en'
+
+alias trude='trans ru:de'
+alias tderu='trans de:ru'
+
 alias t='topydo'
 alias tc='topydo columns'
 
