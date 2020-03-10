@@ -3,7 +3,7 @@ lock() {
 
 # i3lock -i "$(sed -nE "s/^[^']+'([^']+).*/\1/p" ~/.fehbg)"
 
-i3lock-custom
+$(dirname "$0")/i3lock-custom
 
 }
 
