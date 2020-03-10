@@ -1,5 +1,6 @@
 {
   "python.jediEnabled": false,
+  "python.formatting.provider": "black",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
