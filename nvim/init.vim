@@ -204,8 +204,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>ff  <Plug>(coc-format)
+nmap <leader>ff  <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
@@ -338,7 +338,7 @@ let airline#extensions#ale#warning_symbol = 'W:'
 
 let g:ale_fixers = {
 \   'cpp': ['clangtidy'],
-\   'python': ['black', 'isort'],
+\   'python': ['black'],
 \   'scss': ['prettier'],
 \   'rust': ['rustfmt'],
 \   'go': ['gofmt'],
