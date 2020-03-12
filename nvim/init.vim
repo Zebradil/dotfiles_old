@@ -30,6 +30,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Git-wrapper
   Plug 'tpope/vim-fugitive'
+  Plug 'rbong/vim-flog'
 
   " Git-commit browser
   Plug 'junegunn/gv.vim'
