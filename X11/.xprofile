@@ -1,0 +1,4 @@
+# vim: ft=sh
+eval $(/usr/bin/gnome-keyring-daemon --replace --components=secrets,ssh,gpg,pks11 -d)
+export GNOME_KEYRING_CONTROL
+export SSH_AUTH_SOCK
