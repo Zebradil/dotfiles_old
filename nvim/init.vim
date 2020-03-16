@@ -49,9 +49,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Highlight current text block
   Plug 'junegunn/limelight.vim'
 
-  " Colorize matching parenthesis
-  Plug 'luochen1990/rainbow'
-
   " Extended suport for matching parenthesis and words
   Plug 'andymass/vim-matchup'
 
@@ -282,31 +279,6 @@ let g:netrw_winsize=70
 
 let g:airline_powerline_fonts = 1
 let g:context_enabled = 0
-let g:rainbow_active = 0
-let g:deoplete#enable_at_startup = 1
-
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'python': ['~/.local/bin/pyls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'php': ['php', '~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php'],
-    \ 'go': ['gopls'],
-    \ }
-
-" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-"autocmd BufWritePre *.py :call LanguageClient#textDocument_formatting_sync()
-
-" let g:LanguageClient_loggingLevel = 'DEBUG'
-let g:LanguageClient_loggingFile = '/tmp/vim-lsp.log'
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
@@ -346,7 +318,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {
-\   'python': ['flake8'],
+\   'python': [],
 \   'go': ['golint'],
 \}
 
