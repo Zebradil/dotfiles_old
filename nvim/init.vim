@@ -331,6 +331,8 @@ let g:vim_markdown_conceal_code_blocks = 0
 
 let g:vim_markdown_frontmatter = 1
 
+" FZF ---------------------------
+
 nmap <leader>f :Files<cr>|     " fuzzy find files in the working directory (where you launched Vim from)
 nmap <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
 nmap <leader>b :Buffers<cr>|   " fuzzy find an open buffer
@@ -341,6 +343,16 @@ nmap <leader>h :History:<cr>|  " fuzzy find Vim commands history
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg -uu --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+  \   fzf#vim#with_preview(), <bang>0)
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg -uu --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" FZF ---------------------------
