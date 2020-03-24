@@ -336,7 +336,7 @@ let g:vim_markdown_frontmatter = 1
 nmap <leader>f :Files<cr>|     " fuzzy find files in the working directory (where you launched Vim from)
 nmap <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
 nmap <leader>b :Buffers<cr>|   " fuzzy find an open buffer
-nmap <leader>r :Rg |           " fuzzy find text in the working directory
+nmap <leader>r :RG |           " fuzzy find text in the working directory
 nmap <leader>c :Commands<cr>|  " fuzzy find Vim commands (like Ctrl-Shift-P in Sublime/Atom/VSC)
 nmap <leader>h :History:<cr>|  " fuzzy find Vim commands history
 
