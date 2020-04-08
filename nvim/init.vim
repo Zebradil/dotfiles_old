@@ -80,6 +80,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Python
   Plug 'vim-scripts/indentpython.vim'
 
+  " todo.txt
+  Plug 'freitass/todo.txt-vim'
+
   " Identation
   Plug 'Yggdroot/indentLine'
 
