@@ -321,7 +321,6 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {
-\   'python': [],
 \   'go': ['golint'],
 \}
 
