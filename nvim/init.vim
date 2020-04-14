@@ -132,6 +132,10 @@ set linebreak
 
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 
+" Always use «very magic» mode
+nnoremap / /\v
+cnoremap %s/ %s/\v
+
 let mapleader=" "
 
 " Jump to the last position
