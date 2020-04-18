@@ -107,6 +107,8 @@ alias tderu='trans de:ru'
 alias t='topydo'
 alias tc='topydo columns'
 
+alias tt='timew'
+
 alias touch='( read p; d=$(dirname $p); mkdir -p $d && touch $p ) <<<'
 alias dontgiveup='( read p; until eval $p; do sleep 1; done ) <<<'
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
