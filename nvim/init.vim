@@ -315,13 +315,14 @@ let airline#extensions#ale#warning_symbol = 'W:'
 
 let g:ale_fixers = {
 \   'cpp': ['clangtidy'],
-\   'python': ['black'],
+\   'python': ['isort', 'black'],
 \   'scss': ['prettier'],
 \   'rust': ['rustfmt'],
 \   'go': ['gofmt'],
 \}
 
 let g:ale_linters = {
+\   'python': [],
 \   'go': ['golint'],
 \}
 
