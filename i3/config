@@ -33,8 +33,10 @@ exec_always "setxkbmap -layout us,ru \
 
 # autostart
 exec --no-startup-id dropbox start
+exec --no-startup-id seaf-cli start
 exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id dex -ae i3
+exec --no-startup-id systemctl --user start xfce4-notifyd.service
 exec_always --no-startup-id xkb-switch --i3
 
 # start a terminal
