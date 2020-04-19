@@ -102,6 +102,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'robertbasic/vim-hugo-helper'
 
   Plug 'tpope/vim-surround'
+
+  " Outline
+  Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 set mouse=a
