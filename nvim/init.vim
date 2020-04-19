@@ -100,6 +100,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'editorconfig/editorconfig-vim'
 
   Plug 'robertbasic/vim-hugo-helper'
+
+  Plug 'tpope/vim-surround'
 call plug#end()
 
 set mouse=a
