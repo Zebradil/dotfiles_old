@@ -365,3 +365,16 @@ endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " FZF ---------------------------
+
+
+" Vista -------------------------
+"
+let g:vista_sidebar_width = 65
+let g:vista_update_on_text_changed = 1
+let g:vista_default_executive = 'coc'
+
+autocmd FileType vista,vista_kind nnoremap <buffer> <silent> /
+  \ :<c-u>call vista#finder#fzf#Run()<CR>
+"
+" Vista -------------------------
+
