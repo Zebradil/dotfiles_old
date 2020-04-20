@@ -299,7 +299,8 @@ au BufNewFile,BufRead *.q set filetype=hive expandtab
 " Initially added for vim-go plugin
 filetype plugin indent on
 
-autocmd FileType text,markdown,mail setlocal spell
+autocmd FileType           text,markdown,mail setlocal spell
+autocmd BufNewFile,BufRead COMMIT_EDITMSG     setlocal spell
 let g:detectspelllang_langs = {}
 let g:detectspelllang_langs.aspell = ['en_US', 'ru_RU']
 
