@@ -11,7 +11,7 @@
     },
     "dockerfile": {
       "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
+      "filetypes": ["Dockerfile"],
       "args": ["--stdio"]
     },
     "golang": {
