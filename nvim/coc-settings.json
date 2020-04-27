@@ -1,7 +1,7 @@
 {
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
-  "python.linting.pylintArgs": ["--disable=C0330"],
+  "python.linting.pylintArgs": ["--disable=C0330", "--disable=R1724"],
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
