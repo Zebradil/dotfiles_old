@@ -77,6 +77,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Helm
   Plug 'towolf/vim-helm'
 
+  " Ansible
+  Plug 'pearofducks/ansible-vim'
+
   " Python
   Plug 'vim-scripts/indentpython.vim'
 
