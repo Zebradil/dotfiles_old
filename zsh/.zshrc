@@ -10,8 +10,40 @@
 # +-------------------------+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd -u'
 
+export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden --exclude ".git" --exclude "~/go"'
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+FZF_DIRECTORY_PREVIEW_CMD='exa -l --group-directories-first -T --color=always --color-scale {} | head -200'
+export FZF_ALT_C_OPTS="--preview '${FZF_DIRECTORY_PREVIEW_CMD}'"
+
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  eval ${FZF_DEFAULT_COMMAND} --follow . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  eval ${FZF_DEFAULT_COMMAND} --follow --type d . "$1"
+}
+
+# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview "${FZF_DIRECTORY_PREVIEW_CMD}" ;;
+    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+    ssh)          fzf "$@" --preview 'dig {}' ;;
+    man)          man -k . | fzf --prompt='Man> ' --preview 'man $(echo {} | awk "{print \$1}")' | awk '{print $1}' ;;
+    *)            fzf "$@" ;;
+  esac
+}
 
 # +=========================+
 # | History Configuration   |
