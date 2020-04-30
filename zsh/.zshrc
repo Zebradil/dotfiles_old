@@ -107,7 +107,7 @@ fi
 # +-------------------------+
 
 alias ls='exa'
-alias l='ls -l --group-directories-first --git'
+alias l='ls -l --group-directories-first --git --color-scale'
 alias la='l -a'
 alias lt='la -s newest'
 
