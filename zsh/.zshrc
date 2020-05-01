@@ -57,7 +57,7 @@ fzf-find-command-widget() {
       set -o pipefail
       cmd=$(basename {})
       pacman --color=always -Qo {}
-      ( man $cmd | '"${BATMAN_CMD}"' ) \
+      ( man $cmd | '"${FZF_TEXT_FILE_PREVIEW_CMD} -lman"' ) \
       || (
         set -e
         pkg=$(pacman -Qoq {} 2>/dev/null)
@@ -205,7 +205,7 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 # +-------------------------+
 
 SPACESHIP_PROMPT_ORDER=(
-    time          # Time stampts section
+    #time          # Time stampts section
     user          # Username section
     dir           # Current directory section
     host          # Hostname section
