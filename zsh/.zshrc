@@ -14,6 +14,7 @@
 export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden --exclude ".git" --exclude "~/go"'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 FZF_DIRECTORY_PREVIEW_CMD='exa -l --group-directories-first -T --color=always --color-scale {} | head -200'
+BATMAN_CMD='bat -lman -pp --italic-text=always --color=always -r:200'
 export FZF_ALT_C_OPTS="--preview '${FZF_DIRECTORY_PREVIEW_CMD}'"
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
@@ -40,10 +41,28 @@ _fzf_comprun() {
     cd)           fzf "$@" --preview "${FZF_DIRECTORY_PREVIEW_CMD}" ;;
     export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
     ssh)          fzf "$@" --preview 'dig {}' ;;
-    man)          man -k . | fzf --prompt='Man> ' --preview 'man $(echo {} | awk "{print \$1}")' | awk '{print $1}' ;;
+    man)          man -k . | fzf --prompt='Man> ' --preview 'man $(echo {} | awk "{print \$1}") | '"${BATMAN_CMD}" | awk '{print $1}' ;;
     *)            fzf "$@" ;;
   esac
 }
+
+fzf-find-command-widget() {
+  # TODO Add aliases and maybe builtins and functions
+  printf '%s\n' "${commands[@]}" \
+    | fzf --print0 --preview '
+      set -o pipefail
+      cmd=$(basename {})
+      pacman --color=always -Qo {}
+      ( man $cmd | '"${BATMAN_CMD}"' ) \
+      || (
+        set -e
+        pkg=$(pacman -Qoq {} 2>/dev/null)
+        pacman -Qi ${pkg} | rg "Description\s+:\s*(.*)" --only-matching --replace="\$1"
+      )'
+}
+
+zle     -N    fzf-find-command-widget
+bindkey '\ex' fzf-find-command-widget
 
 # +=========================+
 # | History Configuration   |
@@ -89,6 +108,7 @@ compinit
 
 export LANG=en_DK.UTF-8
 export EDITOR='nvim'
+export MANPAGER='most'
 
 
 # +=========================+
