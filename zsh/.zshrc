@@ -11,10 +11,13 @@
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_OPTS='--no-height'
 export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden --exclude ".git" --exclude "~/go"'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-FZF_DIRECTORY_PREVIEW_CMD='exa -l --group-directories-first -T --color=always --color-scale {} | head -200'
-BATMAN_CMD='bat -lman -pp --italic-text=always --color=always -r:200'
+# TODO transform these commands to functions
+FZF_PREVIEW_MAX_LINES=200
+FZF_DIRECTORY_PREVIEW_CMD="exa -l --group-directories-first -T --color=always --color-scale {} | head -${FZF_PREVIEW_MAX_LINES}"
+FZF_TEXT_FILE_PREVIEW_CMD="bat -pp --italic-text=always --color=always -r:${FZF_PREVIEW_MAX_LINES}"
 export FZF_ALT_C_OPTS="--preview '${FZF_DIRECTORY_PREVIEW_CMD}'"
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
@@ -41,7 +44,8 @@ _fzf_comprun() {
     cd)           fzf "$@" --preview "${FZF_DIRECTORY_PREVIEW_CMD}" ;;
     export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
     ssh)          fzf "$@" --preview 'dig {}' ;;
-    man)          man -k . | fzf --prompt='Man> ' --preview 'man $(echo {} | awk "{print \$1}") | '"${BATMAN_CMD}" | awk '{print $1}' ;;
+    man)          man -k . | fzf --prompt='Man> ' --preview 'man $(echo {} | awk "{print \$1}") | '"${FZF_TEXT_FILE_PREVIEW_CMD} -lman" | awk '{print $1}' ;;
+    vi|vim|nvim)  fzf "$@" --preview "[ -f {} ] && ${FZF_TEXT_FILE_PREVIEW_CMD} {} || ${FZF_DIRECTORY_PREVIEW_CMD}" ;;
     *)            fzf "$@" ;;
   esac
 }
