@@ -144,7 +144,7 @@ alias kc="kubectx"
 alias kn="kubens"
 
 alias gmerge='( read branch && git pull && git merge origin/$branch -m "Merge $branch → $(git symbolic-ref --short -q HEAD)" && git push ) <<<'
-alias gship='( gmerge && git push origin :$branch ) <<<'
+alias gship='( read branch && gmerge $branch && git push origin :$branch ) <<<'
 alias cpdiff='git diff --color | iconv -f cp1251 -t utf8 | less -r'
 
 alias tru='trans en:ru'
