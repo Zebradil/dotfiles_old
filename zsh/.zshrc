@@ -349,6 +349,7 @@ if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
 
 # Use Docker buildkit by default
 export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
 
 
 # +=========================+
