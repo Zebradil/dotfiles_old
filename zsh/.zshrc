@@ -52,8 +52,8 @@ _fzf_comprun() {
 
 fzf-find-command-widget() {
   # TODO Add aliases and maybe builtins and functions
-  printf '%s\n' "${commands[@]}" \
-    | fzf --print0 --preview '
+  LBUFFER=$(printf '%s\n' "${commands[@]}" \
+    | fzf --preview '
       set -o pipefail
       cmd=$(basename {})
       pacman --color=always -Qo {}
@@ -62,7 +62,8 @@ fzf-find-command-widget() {
         set -e
         pkg=$(pacman -Qoq {} 2>/dev/null)
         pacman -Qi ${pkg} | rg "Description\s+:\s*(.*)" --only-matching --replace="\$1"
-      )'
+      )')
+  zle redisplay
 }
 
 zle     -N    fzf-find-command-widget
