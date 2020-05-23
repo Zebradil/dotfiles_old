@@ -23,7 +23,8 @@ floating_modifier $mod
 #                 -option 'lv3:ralt_switch_multikey' \
 #                 -option 'misc:typo'"
 
-exec_always "setxkbmap -layout us,ru \
+exec_always "setxkbmap -layout us,us \
+                -variant ,rus \
                 -option \
                 -option 'grp:caps_toggle' \
                 -option 'grp_led:caps' \
