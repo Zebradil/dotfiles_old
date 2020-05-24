@@ -17,20 +17,15 @@ font pango: Noto Sans, FontAwesome 12
 floating_modifier $mod
 
 # Keyboard layout
-# exec_always "setxkbmap -layout us,ru \
-#                 -option 'grp:caps_toggle' \
-#                 -option 'grp_led:caps' \
-#                 -option 'lv3:ralt_switch_multikey' \
-#                 -option 'misc:typo'"
-
 exec_always "setxkbmap -layout us,us \
                 -variant ,rus \
                 -option \
                 -option 'grp:caps_toggle' \
                 -option 'grp_led:caps' \
+                -option 'misc:typo' \
                 -option 'lv3:menu_switch' \
                 -option 'compose:rwin-altgr' \
-                -option 'misc:typo'"
+                "
 
 # autostart
 exec --no-startup-id dropbox start
