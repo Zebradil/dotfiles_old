@@ -24,7 +24,7 @@ exec_always "setxkbmap -layout us,us \
                 -option 'grp_led:caps' \
                 -option 'misc:typo' \
                 -option 'lv3:menu_switch' \
-                -option 'compose:rwin-altgr' \
+                -option 'compose:menu' \
                 "
 
 # autostart
