@@ -46,22 +46,16 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -lines 18 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 14'
 
 #change volume
-#
-# Alsa
-#bindsym XF86AudioRaiseVolume exec amixer -qc 1 set Master unmute 2%+ && killall -USR1 i3status
-#bindsym XF86AudioLowerVolume exec amixer -qc 1 set Master unmute 2%- && killall -USR1 i3status
-#bindsym XF86AudioMute        exec amixer -qc 1 set Master toggle     && killall -USR1 i3status
-#
 # Pulseaudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%    && killall -USR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%    && killall -USR1 i3status
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle && killall -USR1 i3status
 
 # music control
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp   exec light -A 5 # increase screen brightness
