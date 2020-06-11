@@ -77,6 +77,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Helm
   Plug 'towolf/vim-helm'
 
+  " Nginx
+  Plug 'vim-scripts/nginx.vim'
+
   " Ansible
   Plug 'pearofducks/ansible-vim'
 
