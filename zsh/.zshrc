@@ -11,7 +11,7 @@
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_OPTS='--no-height'
+export FZF_DEFAULT_OPTS='--no-height --extended'
 export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden --exclude ".git" --exclude "~/go"'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 # TODO transform these commands to functions
@@ -130,6 +130,9 @@ fi
 # +=========================+
 # | Aliases                 |
 # +-------------------------+
+
+# To use `sudo` with aliases
+alias sudo='sudo '
 
 alias ls='exa'
 alias l='ls -l --group-directories-first --git --color-scale'
