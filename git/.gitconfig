@@ -53,3 +53,5 @@
 	gpgSign = true
 [gpg]
 	program = /usr/bin/gpg
+[pull]
+	ff = only
