@@ -143,7 +143,7 @@ alias cat='bat'
 alias tf="terraform"
 alias tf11="terraform11"
 
-alias k="kubectl --insecure-skip-tls-verify"
+alias k="kubectl"
 alias kc="kubectx"
 alias kn="kubens"
 
