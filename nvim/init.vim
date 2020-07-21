@@ -78,6 +78,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Helm
   Plug 'towolf/vim-helm'
 
+  " Jsonnet
+  Plug 'google/vim-jsonnet'
+
   " Nginx
   Plug 'vim-scripts/nginx.vim'
 
