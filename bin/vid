@@ -1,0 +1,145 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+readonly USAGE="$(basename "$0") TASK INPUT -- do stuff with video files
+
+Output filename is defined automatically from the source filename and applied command
+
+TASK
+
+ help                      : prints this help message
+ cmp INPUT1 INPUT2 [STYLE] : generates side-by-side video from two sources, STYPE={h,v}
+ cut INPUT FROM TO         : cuts INPUT video FROM TO (both are seconds or hh:mm:ss.xxx)
+ spd INPUT SPEED FPS       : speed up or slow down video while ensuring specified FPS
+ stb INPUT [SHAKINESS]     : performs two-step stabilization
+ scl INPUT WIDTH           : scales to requestd width
+
+Environment variables
+
+ SKIP_CONFIRMATION  : Allows skipping confirmation before running commands if set to 1
+"
+
+usage() {
+  echo "${USAGE}"
+  exit 0
+}
+
+wrong_usage() {
+  if [ $# -gt 0 ]
+  then
+    echo "$@" >&2
+  fi
+  echo "${USAGE}" >&2
+  exit 1
+}
+
+confirm_and_run() {
+  if [ $# -lt 1 ]
+  then
+    echo "Incorrect use of $0 function" >&2
+    exit 2
+  fi
+
+  local CMD=$1
+  echo $CMD
+  if [ "${SKIP_CONFIRMATION:-0}" -eq 0 ]
+  then
+    read -p "Run this command? [y/n] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      $CMD
+    fi
+  else
+    echo "Skipping confirmation because SKIP_CONFIRMATION is set"
+    $CMD
+  fi
+}
+
+if [ $# -lt 1 ]
+then
+  wrong_usage "No TASK specified"
+fi
+
+readonly TASK=$1
+shift
+
+case $TASK in
+  help|-h|--help)
+    usage
+    ;;
+  cut)
+    if [ $# -ne 3 ]
+    then
+      wrong_usage "Too few arguments ($#/3)"
+    fi
+    readonly INPUT=$1
+    readonly FROM=$2
+    readonly TO=$3
+    readonly OUTPUT="${INPUT%.*}_cut-${FROM}-${TO}.${INPUT##*.}"
+    confirm_and_run "ffmpeg -i ${INPUT} -ss ${FROM} -c copy -t ${TO} ${OUTPUT}"
+    ;;
+  stb)
+    if [ $# -lt 1 ]
+    then
+      wrong_usage "Too few arguments ($#/1)"
+    fi
+    readonly INPUT=$1
+    readonly SHAKINESS=${2:-10}
+    readonly TRF_FILE="${INPUT%.*}_stb-${SHAKINESS}.trf"
+    readonly OUTPUT="${INPUT%.*}_stb-${SHAKINESS}.${INPUT##*.}"
+    echo "Stabilizing requires two steps: generation (1) and applying (2) transformations."
+    confirm_and_run "ffmpeg -i ${INPUT} -vf vidstabdetect=shakiness=${SHAKINESS}:result=${TRF_FILE} -f null -"
+    confirm_and_run "ffmpeg -i ${INPUT} -vf vidstabtransform=input=${TRF_FILE},unsharp=5:5:0.8:3:3:0.4 ${OUTPUT}"
+    ;;
+  cmp)
+    if [ $# -lt 2 ]
+    then
+      wrong_usage "Too few arguments ($#/2)"
+    fi
+    readonly INPUT1=$1
+    readonly INPUT2=$2
+    readonly STYLE=${3:-h}
+    readonly OUTPUT="${INPUT1%.*}_${STYLE}_${INPUT2}.${INPUT1##*.}"
+    case $STYLE in
+      h)
+        readonly TF="[0:v]crop=iw/2:ih:0:0[left];[1:v]crop=iw/2:ih:ow:0[right];[left][right]hstack"
+        ;;
+      v)
+        readonly TF="[0:v]crop=iw:ih/2:0:0[top];[1:v]crop=iw:ih/2:0:oh[bottom];[top][bottom]vstack"
+        ;;
+      *)
+        wrong_usage "Unknown STYLE ${TASK}"
+        ;;
+    esac
+    confirm_and_run "ffmpeg -i ${INPUT1} -i ${INPUT2} -filter_complex ${TF} ${OUTPUT}"
+    ;;
+  spd)
+    if [ $# -lt 3 ]
+    then
+      wrong_usage "Too few arguments ($#/3)"
+    fi
+    readonly INPUT=$1
+    readonly SPEED=$2
+    readonly FRAMERATE=$3
+    readonly VSPD=$(awk "BEGIN { print 1 / (${SPEED}) }")
+    readonly ASPD=$(awk "BEGIN { print ${SPEED} }")
+    readonly OUTPUT="${INPUT%.*}_spd_${VSPD}.${INPUT##*.}"
+    readonly TF="[0:v]setpts=${VSPD}*PTS[v];[0:a]atempo=${ASPD}[a]"
+    confirm_and_run "ffmpeg -i ${INPUT} -r ${FRAMERATE} -filter_complex ${TF} -map [v] -map [a] ${OUTPUT}"
+    ;;
+  scl)
+    if [ $# -ne 2 ]
+    then
+      wrong_usage "Too few arguments ($#/2)"
+    fi
+    readonly INPUT=$1
+    readonly WIDTH=$2
+    readonly OUTPUT="${INPUT%.*}_x${WIDTH}.${INPUT##*.}"
+    confirm_and_run "ffmpeg -i ${INPUT} -vf scale=960:-2 ${OUTPUT}"
+    ;;
+  *)
+    wrong_usage "Unknown task ${TASK}"
+    ;;
+esac
