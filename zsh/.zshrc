@@ -143,6 +143,8 @@ alias cat='bat'
 alias tf="terraform"
 alias tf11="terraform11"
 
+alias cp="rsync --archive --human-readable --partial --progress"
+
 alias k="kubectl"
 alias kc="kubectx"
 alias kn="kubens"
@@ -173,6 +175,8 @@ alias touch='( read p; d=$(dirname $p); mkdir -p $d && touch $p ) <<<'
 alias dontgiveup='( read p; until eval $p; do sleep 1; done ) <<<'
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias cleanup='find . -name "*~" -print -exec rm -f {} \;'
+
+alias ffmpeg='ffmpeg -hide_banner'
 
 if [ ! $commands[pbcopy] ]; then
   alias pbcopy="xclip -selection c"
