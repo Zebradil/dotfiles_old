@@ -115,6 +115,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Outline
   Plug 'liuchengxu/vista.vim'
+
+  " File icons in explorer windows
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 set mouse=a
