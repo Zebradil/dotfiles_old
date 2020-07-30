@@ -23,7 +23,8 @@ exec_always "setxkbmap -layout us,us \
                 -option 'grp:caps_toggle' \
                 -option 'grp_led:caps' \
                 -option 'misc:typo' \
-                -option 'lv3:menu_switch' \
+                -option 'lv3:ralt_switch' \
+                #-option 'ctrl:swap_lalt_lctl' \
                 -option 'compose:menu' \
                 "
 
