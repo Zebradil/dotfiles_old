@@ -116,6 +116,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Outline
   Plug 'liuchengxu/vista.vim'
 
+  " Search for definitions
+  Plug 'pechorin/any-jump.vim'
+
   " File icons in explorer windows
   Plug 'ryanoasis/vim-devicons'
 call plug#end()
