@@ -1,4 +1,5 @@
 {
+  "explorer.icon.enableNerdfont": true,
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
   "python.linting.pylintArgs": ["--disable=C0330", "--disable=R1724"],
