@@ -166,10 +166,12 @@ alias tdeen='trans de:en'
 alias trude='trans ru:de'
 alias tderu='trans de:ru'
 
-alias t='topydo'
-alias tc='topydo columns'
+alias t='task'
 
 alias tt='timew'
+
+alias todo='topydo'
+alias todoc='topydo columns'
 
 alias touch='( read p; d=$(dirname $p); mkdir -p $d && touch $p ) <<<'
 alias dontgiveup='( read p; until eval $p; do sleep 1; done ) <<<'
