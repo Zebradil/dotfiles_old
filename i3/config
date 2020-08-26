@@ -265,6 +265,47 @@ mode "flameshot (gui, screen, full)" {
 }
 bindsym $mod+Shift+s mode "flameshot (gui, screen, full)"
 
+set $setxkbmap "setxkbmap: [l]enovo, [e]rgodox, [k]bp v60, lo[g]itech"
+mode $setxkbmap {
+    bindsym l exec "setxkbmap -layout us,us \
+                -variant ,rus \
+                -option \
+                -option 'grp:caps_toggle' \
+                -option 'grp_led:caps' \
+                -option 'misc:typo' \
+                -option 'lv3:ralt_switch_multikey' \
+                -option 'ctrl:swap_lalt_lctl' \
+                "
+    bindsym e exec "setxkbmap -layout us,us \
+                -variant ,rus \
+                -option \
+                -option 'grp:caps_toggle' \
+                -option 'grp_led:caps' \
+                -option 'misc:typo' \
+                -option 'lv3:ralt_switch_multikey' \
+                -option 'ctrl:swap_lalt_lctl' \
+                "
+    bindsym k exec "setxkbmap -layout us,us \
+                -variant ,rus \
+                -option \
+                -option 'grp:caps_toggle' \
+                -option 'grp_led:caps' \
+                -option 'misc:typo' \
+                -option 'lv3:ralt_switch_multikey' \
+                -option 'ctrl:swap_lalt_lctl' \
+                "
+    bindsym g exec "setxkbmap -layout us,us \
+                -variant ,rus \
+                -option \
+                -option 'grp:caps_toggle' \
+                -option 'grp_led:caps' \
+                -option 'misc:typo' \
+                -option 'lv3:ralt_switch_multikey' \
+                -option 'ctrl:swap_lalt_lctl' \
+                "
+}
+bindsym $mod+Shift+k mode $setxkbmap
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
