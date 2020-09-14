@@ -303,8 +303,12 @@ mode $setxkbmap {
                 -option 'lv3:ralt_switch_multikey' \
                 -option 'ctrl:swap_lalt_lctl' \
                 "
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Ctrl+k mode "default"
 }
-bindsym $mod+Shift+k mode $setxkbmap
+bindsym $mod+Ctrl+k mode $setxkbmap
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
