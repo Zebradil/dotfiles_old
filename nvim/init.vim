@@ -120,6 +120,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Outline
   Plug 'liuchengxu/vista.vim'
 
+  " Recursively diff and merge directories
+  Plug 'will133/vim-dirdiff'
+
   " Search for definitions
   Plug 'pechorin/any-jump.vim'
 
