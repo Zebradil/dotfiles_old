@@ -81,6 +81,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Jsonnet
   Plug 'google/vim-jsonnet'
 
+  " YTT and Starlark
+  Plug 'cappyzawa/starlark.vim'
+  Plug 'cappyzawa/ytt.vim'
+
   " Nginx
   Plug 'vim-scripts/nginx.vim'
 
