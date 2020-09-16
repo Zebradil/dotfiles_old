@@ -149,6 +149,30 @@ alias k="kubectl"
 alias kc="kubectx"
 alias kn="kubens"
 
+function kk() {
+  local kroot=~/.kube/konfigs
+  local konfigs=$('ls' -A $kroot)
+
+  if [ ! -n "$konfigs" ]
+  then
+    echo There are no konfigs at $kroot
+    return
+  fi
+
+
+  if [ -z ${1+x} ]
+  then
+    local kubeconfig=$kroot/$(echo $konfigs | fzf)
+  else
+    local kubeconfig=$kroot/$1
+  fi
+
+  if [ -n "$('ls' $kubeconfig)" ]
+  then 
+    export KUBECONFIG=$kubeconfig
+  fi
+}
+
 alias gmerge='( read branch && git pull && git merge origin/$branch -m "Merge $branch → $(git symbolic-ref --short -q HEAD)" && git push ) <<<'
 alias gship='( read branch && gmerge $branch && git push origin :$branch ) <<<'
 alias cpdiff='git diff --color | iconv -f cp1251 -t utf8 | less -r'
@@ -235,13 +259,13 @@ SPACESHIP_PROMPT_ORDER=(
     # haskell       # Haskell Stack section
     # julia         # Julia section
     # docker        # Docker section
-    aws           # Amazon Web Services section
+    # aws           # Amazon Web Services section
     venv          # virtualenv section
     # conda         # conda virtualenv section
     pyenv         # Pyenv section
     # dotnet        # .NET section
     # ember         # Ember.js section
-    # kubecontext   # Kubectl context section
+    # kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     exec_time     # Execution time
     line_sep      # Line break
@@ -268,7 +292,7 @@ spaceship_docker_machine() {
 spaceship_kubeconfig() {
   [[ -z $KUBECONFIG ]] && return
 
-  spaceship_kubecontext
+  spaceship_kubectl_context
 }
 
 
