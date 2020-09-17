@@ -140,12 +140,15 @@ alias la='l -a'
 alias lt='la -s newest'
 
 alias cat='bat'
+alias caty='bat -lyaml'
 alias tf="terraform"
 alias tf11="terraform11"
 
 alias cp="rsync --archive --human-readable --partial --progress"
 
 alias k="kubectl"
+alias kd="kubectl describe"
+alias kgy="kubectl get -oyaml"
 alias kc="kubectx"
 alias kn="kubens"
 
