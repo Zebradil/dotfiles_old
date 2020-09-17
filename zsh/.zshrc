@@ -113,7 +113,7 @@ compinit
 
 export LANG=en_DK.UTF-8
 export EDITOR='nvim'
-export MANPAGER='most'
+export MANPAGER='nvim +Man!'
 
 
 # +=========================+
