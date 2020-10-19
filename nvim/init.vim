@@ -128,6 +128,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " File icons in explorer windows
   Plug 'ryanoasis/vim-devicons'
+
+  Plug 'vimwiki/vimwiki'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 
 set mouse=a
@@ -315,6 +318,8 @@ let g:netrw_winsize=30
 
 let g:airline_powerline_fonts = 1
 let g:context_enabled = 0
+
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
