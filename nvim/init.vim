@@ -378,6 +378,7 @@ let g:ale_fixers = {
 \   'python': ['isort', 'black'],
 \   'scss': ['prettier'],
 \   'rust': ['rustfmt'],
+\   'php': ['php_cs_fixer'],
 \   'go': ['gofmt'],
 \}
 
