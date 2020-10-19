@@ -282,8 +282,8 @@ mode $setxkbmap {
                 -option 'grp:caps_toggle' \
                 -option 'grp_led:caps' \
                 -option 'misc:typo' \
-                -option 'lv3:ralt_switch_multikey' \
-                -option 'ctrl:swap_lalt_lctl' \
+                -option 'lv3:ralt_switch' \
+                -option 'compose:menu' \
                 "
     bindsym k exec "setxkbmap -layout us,us \
                 -variant ,rus \
