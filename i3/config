@@ -338,5 +338,5 @@ client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f
 
 default_border pixel 1
-floating_maximum_size 1024 x 600
+hide_edge_borders both
 for_window [floating] move position center
