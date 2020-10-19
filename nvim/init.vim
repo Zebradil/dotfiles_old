@@ -482,4 +482,9 @@ command! Kwbd call s:Kwbd(1)
 nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
 
 nmap <C-W>! <Plug>Kwbd
+
+" Inplace encode and decode base64
+vnoremap <leader>64e c<c-r>=system('base64 --wrap=0', @")<cr><esc>
+vnoremap <leader>64d c<c-r>=system('base64 --wrap=0 --decode', @")<cr><esc>
+
 endif
