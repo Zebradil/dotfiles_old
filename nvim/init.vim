@@ -398,7 +398,7 @@ let g:vim_markdown_frontmatter = 1
 
 " FZF ---------------------------
 
-nmap <leader>f :Files<cr>|     " fuzzy find files in the working directory (where you launched Vim from)
+nmap <leader>fl :Files<cr>|     " fuzzy find files in the working directory (where you launched Vim from)
 nmap <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
 nmap <leader>b :Buffers<cr>|   " fuzzy find an open buffer
 nmap <leader>rf :Rg |           " fuzzy find text in the working directory
