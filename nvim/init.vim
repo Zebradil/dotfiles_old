@@ -117,6 +117,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'tpope/vim-surround'
 
+  Plug 'mattn/emmet-vim'
+
   " Outline
   Plug 'liuchengxu/vista.vim'
 
