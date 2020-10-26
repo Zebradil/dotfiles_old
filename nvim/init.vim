@@ -357,6 +357,8 @@ au BufNewFile,BufRead *.q set filetype=hive expandtab
 
 " Initially added for vim-go plugin
 filetype plugin indent on
+" Disable auto reindent on colon in yaml files
+autocmd FileType yaml setl indentkeys-=<:>
 
 autocmd FileType           text,markdown,mail setlocal spell
 autocmd BufNewFile,BufRead COMMIT_EDITMSG     setlocal spell
