@@ -30,7 +30,6 @@ exec_always "setxkbmap -layout us,us \
 
 # autostart
 exec --no-startup-id dropbox start
-exec --no-startup-id seaf-cli start
 exec --no-startup-id redshift -l geoclue2 -t 6500K:3500K
 exec --no-startup-id udiskie --no-automount --no-notify --tray
 exec --no-startup-id dex -ae i3
