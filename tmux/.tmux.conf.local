@@ -297,4 +297,6 @@ bind C-a send-prefix
 # move status line to top
 #set -g status-position top
 
-bind -n C-x setw synchronize-panes
+bind    C-x setw synchronize-panes
+bind -r C-H swap-window -d -t -1
+bind -r C-L swap-window -d -t +1
