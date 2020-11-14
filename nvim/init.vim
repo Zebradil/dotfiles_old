@@ -236,7 +236,8 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+" nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rn :CocCommand document.renameCurrentWord<CR>
 
 " Remap for format selected region
 xmap <leader>ff  <Plug>(coc-format)
