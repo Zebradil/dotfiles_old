@@ -180,6 +180,20 @@ set hidden
 
 
 " =========================== COC config ↓
+
+let g:coc_global_extensions = [
+    \ 'coc-browser',
+    \ 'coc-explorer',
+    \ 'coc-git',
+    \ 'coc-json',
+    \ 'coc-phpls',
+    \ 'coc-python',
+    \ 'coc-rust-analyzer',
+    \ 'coc-vetur',
+    \ 'coc-yaml',
+    \ 'coc-yank',
+    \ ]
+
 " Better display for messages
 set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
