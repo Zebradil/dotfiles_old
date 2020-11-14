@@ -437,13 +437,15 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 "
 let g:vista_sidebar_width = 65
 let g:vista_update_on_text_changed = 1
-let g:vista_default_executive = 'coc'
+" let g:vista_default_executive = 'coc'
 
 " Disable running Vista on startup by airline
-let g:airline#extensions#vista#enabled = 0
+" let g:airline#extensions#vista#enabled = 0
 
 autocmd FileType vista,vista_kind nnoremap <buffer> <silent> /
   \ :<c-u>call vista#finder#fzf#Run()<CR>
+
+nmap <leader>v :Vista!!<CR>
 "
 " Vista -------------------------
 
