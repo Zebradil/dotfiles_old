@@ -339,6 +339,7 @@ let g:netrw_winsize=30
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 0
 let g:airline_mode_map = {
     \ '__'     : '-',
     \ 'c'      : 'C',
