@@ -149,6 +149,7 @@ alias cp="rsync --archive --human-readable --partial --progress"
 alias k="kubectl"
 alias kd="kubectl describe"
 alias kgy="kubectl get -oyaml"
+alias kga="kubectl get -A"
 alias kc="kubectx"
 alias kn="kubens"
 
