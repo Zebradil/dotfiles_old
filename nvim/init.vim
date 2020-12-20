@@ -91,6 +91,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Ansible
   Plug 'pearofducks/ansible-vim'
 
+  " Pgsql
+  Plug 'lifepillar/pgsql.vim'
+
   " Python
   Plug 'vim-scripts/indentpython.vim'
 
