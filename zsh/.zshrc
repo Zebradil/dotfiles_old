@@ -172,7 +172,7 @@ function kk() {
   fi
 
   if [ -n "$('ls' $kubeconfig)" ]
-  then 
+  then
     export KUBECONFIG=$kubeconfig
   fi
 }
@@ -201,7 +201,6 @@ alias tt='timew'
 alias todo='topydo'
 alias todoc='topydo columns'
 
-alias touch='( read p; d=$(dirname $p); mkdir -p $d && touch $p ) <<<'
 alias dontgiveup='( read p; until eval $p; do sleep 1; done ) <<<'
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias cleanup='find . -name "*~" -print -exec rm -f {} \;'
