@@ -387,6 +387,8 @@ if [ $commands[fasd] ]; then eval "$(fasd --init auto)"; fi
 export FZFZ_SUBDIR_LIMIT=0
 export FZFZ_RECENT_DIRS_TOOL=fasd
 
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
 if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
 
 
