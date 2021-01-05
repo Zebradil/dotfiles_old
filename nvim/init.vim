@@ -40,6 +40,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Colorschemes
   Plug 'chriskempson/base16-vim'
+  Plug 'rakr/vim-one'
+  Plug 'joshdick/onedark.vim'
 
   " Distruction-free writing
   Plug 'junegunn/goyo.vim'
@@ -149,7 +151,10 @@ set termguicolors
 " Set word highlight style to underline
 hi link illuminatedWord Visual
 
-colorscheme base16-default-dark
+let g:one_allow_italics = 1
+let g:onedark_terminal_italics = 1
+let g:airline_theme='onedark'
+colorscheme onedark
 
 set exrc
 set secure
