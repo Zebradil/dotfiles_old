@@ -522,6 +522,12 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+    (setq vc-follow-symlinks t)
+
+    ;;; scroll one line at a time (less "jumpy" than defaults)
+    (setq mouse-wheel-scroll-amount '(5 ((shift) . 1) ((control) . text-scale))) ;; one line at a time
+    (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+    (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
