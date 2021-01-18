@@ -534,6 +534,11 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
     (setq vc-follow-symlinks t)
 
+    (prefer-coding-system 'utf-8)
+    (set-default-coding-systems 'utf-8)
+    (set-terminal-coding-system 'utf-8)
+    (set-keyboard-coding-system 'utf-8)
+
     ;;; scroll one line at a time (less "jumpy" than defaults)
     (setq mouse-wheel-scroll-amount '(5 ((shift) . 1) ((control) . text-scale))) ;; one line at a time
     (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
