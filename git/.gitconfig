@@ -8,7 +8,7 @@
     helper = /usr/lib/git-core/git-credential-libsecret
 [core]
     autocrlf = input
-    pager = delta --theme=base16 --dark
+    pager = delta --theme=gruvbox
     excludesfile = /home/zebradil/.gitignore_global
 [interactive]
     diffFilter = delta --color-only
