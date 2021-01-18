@@ -545,21 +545,28 @@ before packages are loaded."
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
     (setq org-agenda-files '("~/org"))
+    (setq org-startup-indented t)
+
+    ; https://en.wikipedia.org/wiki/X11_color_names
     (setq org-todo-keyword-faces
         '(("TODO" :foreground "gold")
              ("NEXT" :foreground "tomato")
              ("EVENT" :background "gray25" :foreground "white")
              ("PROJ" :background "firebrick" :foreground "white")
+             ("CANCELLED" :foreground "dark gray")
              ("DONE" :foreground "dark sea green")))
     (setq hl-todo-keyword-faces
-         '(("TODO" . "#dc752f")
-              ("NEXT" . "#dc752f")
+         '(("TODO" . "gold")
+              ("NEXT" . "tomato")
               ("THEM" . "#2aa198")
               ("PROG" . "#268bd2")
               ("OKAY" . "#268bd2")
               ("DONT" . "#d70000")
               ("FAIL" . "#d70000")
-              ("DONE" . "#86dc2f")
+              ("DONE" . "dark sea green")
+              ("CANCELLED" :foreground "dark gray")
+              ("EVENT" :background "gray25" :foreground "white")
+              ("PROJ" :background "firebrick" :foreground "white")
               ("NOTE" . "#875f00")
               ("KLUDGE" . "#875f00")
               ("HACK" . "#875f00")
