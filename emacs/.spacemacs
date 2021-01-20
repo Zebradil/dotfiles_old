@@ -547,8 +547,17 @@ before packages are loaded."
     (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-    (setq org-agenda-files '("~/org"))
+    (load-library "find-lisp")
+    (setq org-agenda-files
+        (find-lisp-find-files "~/org" "\.org$"))
     (setq org-startup-indented t)
+    (setq org-startup-folded t)
+
+    (setq org-refile-targets '((nil :maxlevel . 9)
+                                  (org-agenda-files :maxlevel . 9)))
+    (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+    (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
 
     ; https://en.wikipedia.org/wiki/X11_color_names
     (setq org-todo-keyword-faces
