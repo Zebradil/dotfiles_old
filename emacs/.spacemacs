@@ -535,6 +535,8 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
     (setq vc-follow-symlinks t)
 
+    (setq evil-ex-visual-char-range t)
+
     (prefer-coding-system 'utf-8)
     (set-default-coding-systems 'utf-8)
     (set-terminal-coding-system 'utf-8)
