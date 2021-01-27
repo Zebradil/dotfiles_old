@@ -552,7 +552,7 @@ before packages are loaded."
     (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-    (add-to-list 'org-modules 'org-tempo t)
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
 
     (load-library "find-lisp")
     (setq org-agenda-files
