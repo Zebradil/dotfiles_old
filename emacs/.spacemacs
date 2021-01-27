@@ -554,6 +554,9 @@ before packages are loaded."
 
     (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
 
+    (setq case-fold-search nil)
+    (setq evil-ex-search-case nil)
+
     (load-library "find-lisp")
     (setq org-agenda-files
         (find-lisp-find-files "~/org" "\.org$"))
@@ -567,18 +570,20 @@ before packages are loaded."
     (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
     (setq org-todo-keywords
-        '((sequence "TODO" "NEXT" "|" "DONE" "CANCELLED")))
+        '((sequence "MAYBE" "TODO" "NEXT" "|" "DONE" "CANCELLED")))
 
     ; https://en.wikipedia.org/wiki/X11_color_names
     (setq org-todo-keyword-faces
-        '(("TODO" :foreground "gold")
+        '(("MAYBE" :foreground "dark khaki")
+             ("TODO" :foreground "gold")
              ("NEXT" :foreground "tomato")
              ("EVENT" :background "gray25" :foreground "white")
              ("PROJ" :background "firebrick" :foreground "white")
              ("CANCELLED" :foreground "dark gray")
              ("DONE" :foreground "dark sea green")))
     (setq hl-todo-keyword-faces
-         '(("TODO" . "gold")
+         '(("MAYBE" . "dark khaki")
+              ("TODO" . "gold")
               ("NEXT" . "tomato")
               ("THEM" . "#2aa198")
               ("PROG" . "#268bd2")
