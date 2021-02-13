@@ -80,7 +80,8 @@ This function should only modify configuration layer settings."
                  treemacs-use-git-mode 'deferred
                  treemacs-use-all-the-icons-theme t)
              version-control
-             (yaml :variables yaml-enable-lsp t))
+             (yaml :variables yaml-enable-lsp t)
+             (xclipboard :variables xclipboard-enable-cliphist t))
 
 
         ;; List of additional packages that will be installed without being wrapped
