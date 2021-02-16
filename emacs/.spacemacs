@@ -93,7 +93,11 @@ This function should only modify configuration layer settings."
         ;; `dotspacemacs/user-config'. To use a local version of a package, use the
         ;; `:location' property: '(your-package :location "~/path/to/your-package/")
         ;; Also include the dependencies as they will not be resolved automatically.
-        dotspacemacs-additional-packages '(easy-hugo helm-org-rifle)
+        dotspacemacs-additional-packages
+        '(
+             easy-hugo
+             helm-org-rifle
+             (term-cursor :location (recipe :fetcher github :repo "h0d/term-cursor.el" )))
 
         ;; A list of packages that cannot be updated.
         dotspacemacs-frozen-packages '()
@@ -550,12 +554,14 @@ before packages are loaded."
 
     (setq evil-ex-visual-char-range t)
 
+    (global-term-cursor-mode)
+
     (prefer-coding-system 'utf-8)
     (set-default-coding-systems 'utf-8)
     (set-terminal-coding-system 'utf-8)
     (set-keyboard-coding-system 'utf-8)
 
-    ;;; scroll one line at a time (less "jumpy" than defaults)
+    ;; scroll one line at a time (less "jumpy" than defaults)
     (setq mouse-wheel-scroll-amount '(5 ((shift) . 1) ((control) . text-scale))) ;; one line at a time
     (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
@@ -569,7 +575,7 @@ before packages are loaded."
     (setq org-agenda-files
         (find-lisp-find-files "~/org" "\.org$"))
     (setq org-startup-indented t)
-    (setq org-startup-folded t)
+    ;; (setq org-startup-folded t)
 
     (setq org-refile-targets
         '((nil :maxlevel . 9)
