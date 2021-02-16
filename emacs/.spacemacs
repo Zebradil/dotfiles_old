@@ -573,6 +573,13 @@ before packages are loaded."
     (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
     (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
+    (org-babel-do-load-languages
+        'org-babel-load-languages
+        '(
+             (shell . t)
+             (python . t)
+             ))
+
     (setq org-todo-keywords
         '((sequence "MAYBE" "TODO" "NEXT" "|" "DONE" "CANCELLED")))
 
