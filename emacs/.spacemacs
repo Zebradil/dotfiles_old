@@ -80,6 +80,7 @@ This function should only modify configuration layer settings."
                  treemacs-use-git-mode 'deferred
                  treemacs-use-all-the-icons-theme t)
              version-control
+             (vue :variables vue-backend 'lsp)
              (yaml :variables yaml-enable-lsp t)
              (xclipboard :variables xclipboard-enable-cliphist t))
 
@@ -541,6 +542,8 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
     (setq vc-follow-symlinks t)
 
+    (setq create-lockfiles nil)
+
     (setq evil-ex-visual-char-range t)
 
     (prefer-coding-system 'utf-8)
@@ -602,6 +605,8 @@ before packages are loaded."
              ("FIXME" . "#dc752f")
              ("XXX+" . "#dc752f")
              ("\\?\\?\\?+" . "#dc752f")))
+
+    (setq dired-listing-switches "-lXGh --group-directories-first")
     )
 
 ;; Do not write anything past this comment. This is where Emacs will
