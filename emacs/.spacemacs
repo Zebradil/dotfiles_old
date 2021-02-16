@@ -509,7 +509,11 @@ It should only modify the values of Spacemacs settings."
 
         ;; If nil the home buffer shows the full path of agenda items
         ;; and todos. If non nil only the file name is shown.
-        dotspacemacs-home-shorten-agenda-source nil))
+        dotspacemacs-home-shorten-agenda-source nil
+
+        ;; If non-nil then byte-compile some of Spacemacs files.
+        dotspacemacs-byte-compile t))
+
 
 (defun dotspacemacs/user-env ()
     "Environment variables setup.
@@ -573,13 +577,6 @@ before packages are loaded."
     (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
     (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
-    (org-babel-do-load-languages
-        'org-babel-load-languages
-        '(
-             (shell . t)
-             (python . t)
-             ))
-
     (setq org-todo-keywords
         '((sequence "MAYBE" "TODO" "NEXT" "|" "DONE" "CANCELLED")))
 
@@ -612,6 +609,11 @@ before packages are loaded."
              ("FIXME" . "#dc752f")
              ("XXX+" . "#dc752f")
              ("\\?\\?\\?+" . "#dc752f")))
+
+    (org-babel-do-load-languages
+        'org-babel-load-languages
+        '((shell . t)
+             (python . t)))
 
     (setq dired-listing-switches "-lXGh --group-directories-first")
     )
