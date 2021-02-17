@@ -584,13 +584,14 @@ before packages are loaded."
     (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
     (setq org-todo-keywords
-        '((sequence "MAYBE" "TODO" "NEXT" "|" "DONE" "CANCELLED")))
+        '((sequence "MAYBE" "TODO" "NEXT" "DOING" "|" "DONE" "CANCELLED")))
 
                                         ; https://en.wikipedia.org/wiki/X11_color_names
     (setq org-todo-keyword-faces
         '(("MAYBE" :foreground "dark khaki")
              ("TODO" :foreground "gold")
              ("NEXT" :foreground "tomato")
+             ("DOING" :foreground "red")
              ("EVENT" :background "gray25" :foreground "white")
              ("PROJ" :background "firebrick" :foreground "white")
              ("CANCELLED" :foreground "dark gray")
@@ -599,6 +600,7 @@ before packages are loaded."
         '(("MAYBE" . "dark khaki")
              ("TODO" . "gold")
              ("NEXT" . "tomato")
+             ("DOING" . "red")
              ("THEM" . "#2aa198")
              ("PROG" . "#268bd2")
              ("OKAY" . "#268bd2")
