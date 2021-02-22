@@ -181,18 +181,18 @@ alias gmerge='( read branch && git pull && git merge origin/$branch -m "Merge $b
 alias gship='( read branch && gmerge $branch && git push origin :$branch ) <<<'
 alias cpdiff='git diff --color | iconv -f cp1251 -t utf8 | less -r'
 
-alias tru='trans en:ru'
-alias ten='trans ru:en'
-alias пер='trans ru:en'
+alias tru='trans -j en:ru'
+alias ten='trans -j ru:en'
+alias пер='trans -j ru:en'
 
-alias truen='trans ru:en'
-alias tenru='trans en:ru'
+alias truen='trans -j ru:en'
+alias tenru='trans -j en:ru'
 
-alias tende='trans en:de'
-alias tdeen='trans de:en'
+alias tende='trans -j en:de'
+alias tdeen='trans -j de:en'
 
-alias trude='trans ru:de'
-alias tderu='trans de:ru'
+alias trude='trans -j ru:de'
+alias tderu='trans -j de:ru'
 
 alias t='task'
 
