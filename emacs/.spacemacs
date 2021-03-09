@@ -577,7 +577,7 @@ before packages are loaded."
     (setq org-agenda-files
         (find-lisp-find-files "~/org" "\.org$"))
     (setq org-startup-indented t)
-    ;; (setq org-startup-folded t)
+    (setq org-startup-folded t)
 
     (setq org-refile-targets
         '((nil :maxlevel . 9)
