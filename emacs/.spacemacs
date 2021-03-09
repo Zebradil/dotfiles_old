@@ -49,11 +49,12 @@ This function should only modify configuration layer settings."
              git
              gtags
              helm
-             html
+             (html :variables web-fmt-tool 'prettier)
              javascript
              (lsp :variables lsp-rust-server 'rust-analyzer)
              markdown
              multiple-cursors
+             prettier
              (sql :variables
                  ;; sql-backend 'lsp
                  sql-lsp-sqls-workspace-config-path 'workspace
