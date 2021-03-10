@@ -362,6 +362,8 @@ if [ $commands[hcloud] ]; then source <(hcloud completion zsh); fi
 
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh | sed '/"-f"/d'); fi
 
+if [[ -f ~/.config/tabtab/__tabtab.zsh ]]; then source ~/.config/tabtab/__tabtab.zsh; fi
+
 
 # +=========================+
 # | Gnome keyring           |
