@@ -536,6 +536,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+    (setq lsp-pyright-multi-root nil)
     )
 
 (defun dotspacemacs/user-load ()
@@ -688,7 +689,6 @@ static char *gnus-pointer[] = {
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
- '(lsp-pyright-multi-root nil)
  '(objed-cursor-color "#ff6c6b")
  '(org-agenda-files
    '("/home/zebradil/org/daily.org" "/home/zebradil/org/todo.org" "/home/zebradil/org/notes.org" "/home/zebradil/org/index.org" "/home/zebradil/org/knowledge/k-vim.org" "/home/zebradil/org/knowledge/k-org-mode.org" "/home/zebradil/org/knowledge/k-cli.org" "/home/zebradil/org/knowledge/k-go.org" "/home/zebradil/org/knowledge/k-github-actions.org" "/home/zebradil/org/knowledge/k-javascript.org" "/home/zebradil/org/knowledge/k-programming.org" "/home/zebradil/org/snippets/s-shell.org" "/home/zebradil/org/projects/p-investment.org" "/home/zebradil/org/projects/p-career.org" "/home/zebradil/org/projects/p-health.org" "/home/zebradil/org/projects/p-RuWordNet.org" "/home/zebradil/org/projects/p-legal.org" "/home/zebradil/org/projects/p-nerd.org" "/home/zebradil/org/projects/p-sport.org" "/home/zebradil/org/projects/p-homelab.org" "/home/zebradil/org/projects/p-RusTOTPony.org"))
