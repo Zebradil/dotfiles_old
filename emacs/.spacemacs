@@ -96,11 +96,7 @@ This function should only modify configuration layer settings."
         ;; `dotspacemacs/user-config'. To use a local version of a package, use the
         ;; `:location' property: '(your-package :location "~/path/to/your-package/")
         ;; Also include the dependencies as they will not be resolved automatically.
-        dotspacemacs-additional-packages
-        '(
-             easy-hugo
-             helm-org-rifle
-             (term-cursor :location (recipe :fetcher github :repo "h0d/term-cursor.el" )))
+        dotspacemacs-additional-packages '(easy-hugo helm-org-rifle)
 
         ;; A list of packages that cannot be updated.
         dotspacemacs-frozen-packages '()
@@ -572,8 +568,6 @@ before packages are loaded."
         )
 
     (setq evil-ex-visual-char-range t)
-
-    (global-term-cursor-mode)
 
     (prefer-coding-system 'utf-8)
     (set-default-coding-systems 'utf-8)
