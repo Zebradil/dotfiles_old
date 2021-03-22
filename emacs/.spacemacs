@@ -73,7 +73,7 @@ This function should only modify configuration layer settings."
                  python-formatter 'black
                  python-lsp-server 'pyright
                  python-poetry-activate t
-                 python-sort-imports-on-save t)
+                 python-sort-imports-on-save nil)
              semantic
              spell-checking
              syntax-checking
