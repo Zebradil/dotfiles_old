@@ -585,6 +585,8 @@ before packages are loaded."
 
     (add-to-list 'default-frame-alist '(font . "Iosevka-12"))
 
+    (setq projectile-project-search-path '("~/development/" "~/org/"))
+
     (setq case-fold-search nil)
     (setq evil-ex-search-case nil)
 
