@@ -51,7 +51,9 @@ This function should only modify configuration layer settings."
              helm
              (html :variables web-fmt-tool 'prettier)
              javascript
-             (lsp :variables lsp-rust-server 'rust-analyzer)
+             (lsp :variables
+                 lsp-rust-server 'rust-analyzer
+                 lsp-terraform-server '("terraform-ls" "serve"))
              markdown
              multiple-cursors
              prettier
@@ -59,6 +61,7 @@ This function should only modify configuration layer settings."
                  ;; sql-backend 'lsp
                  sql-lsp-sqls-workspace-config-path 'workspace
                  sql-capitalize-keywords t)
+             (terraform :variables terraform-auto-format-on-save t)
              (org :variables
                  org-enable-bootstrap-support t
                  org-enable-hugo-support t
