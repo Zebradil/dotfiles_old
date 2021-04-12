@@ -640,13 +640,81 @@ before packages are loaded."
              ("XXX+" . "#dc752f")
              ("\\?\\?\\?+" . "#dc752f")))
 
+    (setq org-agenda-custom-commands
+        '(("n" "Agenda and all TODOs"
+              ((agenda ""
+                   ((org-agenda-span 7)
+                       (org-agenda-repeating-timestamp-show-all t)))
+                  (todo "")))
+             ("h" "Agenda and Home-related tasks"
+                 ((agenda ""
+                      ((org-agenda-span 7)
+                          (org-agenda-repeating-timestamp-show-all t)))
+                     (todo ""))
+                 ((org-agenda-tag-filter-preset '("+common")))
+                 ("~/org/export/home.html"))
+             ))
+
+    (setq org-agenda-export-html-style
+        "<style>
+      body {
+        color: #eaeaea;
+        background-color: #000000;
+        font-size: 2em;
+      }
+      .custom {
+        /* (:foreground gold) */
+        color: #ffd700;
+      }
+      .org-agenda-date {
+        /* org-agenda-date */
+        color: #7aa6da;
+      }
+      .org-agenda-date-today {
+        /* org-agenda-date-today */
+        color: #7aa6da;
+        font-weight: bold;
+        font-style: italic;
+      }
+      .org-agenda-date-weekend {
+        /* org-agenda-date-weekend */
+        color: #7aa6da;
+        font-weight: bold;
+      }
+      .org-agenda-structure {
+        /* org-agenda-structure */
+        color: #c397d8;
+      }
+      .org-scheduled-today {
+        /* org-scheduled-today */
+        color: #b9ca4a;
+      }
+      .org-tag {
+        /* org-tag */
+        font-weight: bold;
+      }
+      .warning {
+        /* warning */
+        color: #e78c45;
+      }
+
+      a {
+        color: inherit;
+        background-color: inherit;
+        font: inherit;
+        text-decoration: inherit;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+        </style>")
+
     (org-babel-do-load-languages
         'org-babel-load-languages
         '((shell . t)
              (python . t)))
 
-    (setq dired-listing-switches "-lXGh --group-directories-first")
-    )
+    (setq dired-listing-switches "-lXGh --group-directories-first"))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
