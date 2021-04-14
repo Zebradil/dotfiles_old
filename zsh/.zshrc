@@ -111,7 +111,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-export LANG=en_DK.UTF-8
+export LANG=en_US.UTF-8
+export LC_TIME=en_DK.UTF-8
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
 
