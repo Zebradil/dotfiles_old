@@ -183,7 +183,7 @@ tmux_conf_theme_right_separator_sub='|'
 # tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} | #{loadavg} '
 # tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 tmux_conf_theme_status_left=' ❐ #S '
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} , #(/bin/bash $HOME/dotfiles/tmux/kube.tmux 250 red cyan) | #(timew t :day | rg InfluencerDB | awk "{print \$2}") | #{username_ssh}#{root} | #{hostname_ssh} '
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} , #(/bin/bash $HOME/dotfiles/tmux/kube.tmux 250 red cyan) | #(timew t :day | rg GEC | awk "{print \$2}") | #{username_ssh}#{root} | #{hostname_ssh} '
 
 # status left style
 tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
