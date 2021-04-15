@@ -291,7 +291,7 @@ SPACESHIP_PROMPT_ORDER=(
 )
 spaceship_vi_mode_enable
 
-SPACESHIP_RPROMPT_ORDER=(docker_machine kubeconfig)
+SPACESHIP_RPROMPT_ORDER=(docker_machine kubeconfig openstack)
 
 spaceship_docker_machine() {
   [[ -z $DOCKER_MACHINE_NAME ]] && return
@@ -309,6 +309,15 @@ spaceship_kubeconfig() {
   spaceship_kubectl_context
 }
 
+spaceship_openstack() {
+  [[ -z $OS_PROJECT_NAME ]] && return
+
+  spaceship::section \
+    "#af5f00" \
+    "" \
+    "OS:$OS_PROJECT_NAME" \
+    ""
+}
 
 # +=========================+
 # | Library                 |
