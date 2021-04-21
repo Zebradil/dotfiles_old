@@ -145,6 +145,8 @@ alias caty='bat -lyaml'
 alias tf="terraform"
 alias tf11="terraform11"
 
+alias os='openstack'
+
 alias cp="rsync --archive --human-readable --partial --progress"
 
 alias k="kubectl"
