@@ -557,6 +557,9 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+    (spacemacs|do-after-display-system-init
+        (spacemacs/load-spacemacs-env))
+
     (setq vc-follow-symlinks t)
 
     (setq create-lockfiles nil)
