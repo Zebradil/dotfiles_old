@@ -271,7 +271,7 @@ It should only modify the values of Spacemacs settings."
         ;; Default font or prioritized list of fonts. The `:size' can be specified as
         ;; a non-negative integer (pixel size), or a floating-point (point size).
         ;; Point size is recommended, because it's device independent. (default 10.0)
-        dotspacemacs-default-font '("Iosevka Term"
+        dotspacemacs-default-font '("monospace"
                                        :size 12.0
                                        :weight normal
                                        :width normal)
@@ -591,7 +591,7 @@ before packages are loaded."
     (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-    (add-to-list 'default-frame-alist '(font . "Iosevka Term-12"))
+    (add-to-list 'default-frame-alist '(font . "monospace-12"))
 
     (setq projectile-project-search-path '("~/development/" "~/org/"))
 
@@ -782,6 +782,6 @@ static char *gnus-pointer[] = {
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(fixed-pitch ((t (:family "Iosevka Term"))))
+ '(fixed-pitch ((t (:family "monospace"))))
  '(whitespace-space ((t (:background "black" :foreground "gray30")))))
 )
