@@ -55,7 +55,7 @@ This function should only modify configuration layer settings."
              (lsp :variables
                  lsp-rust-server 'rust-analyzer
                  lsp-terraform-server '("terraform-ls" "serve"))
-             markdown
+             (markdown :variables markdown-live-preview-engine 'vmd)
              multiple-cursors
              prettier
              (sql :variables
