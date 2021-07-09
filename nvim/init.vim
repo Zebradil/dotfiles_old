@@ -388,7 +388,7 @@ autocmd FileType yaml setl indentkeys-=<:>
 autocmd FileType           text,markdown,mail setlocal spell
 autocmd BufNewFile,BufRead COMMIT_EDITMSG     setlocal spell
 let g:detectspelllang_langs = {}
-let g:detectspelllang_langs.aspell = ['en_US', 'ru_RU']
+let g:detectspelllang_langs.aspell = ['en', 'ru', 'de_DE']
 
 " Enable automatic layout switcher
 let g:XkbSwitchEnabled = 1
