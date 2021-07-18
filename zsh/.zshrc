@@ -156,6 +156,8 @@ alias kga="kubectl get -A"
 alias kc="kubectx"
 alias kn="kubens"
 
+alias ec="emacsclient -nc"
+
 function kk() {
   local kroot=~/.kube/konfigs
   local konfigs=$('ls' -A $kroot)
