@@ -158,6 +158,16 @@ alias kn="kubens"
 
 alias ec="emacsclient -nc"
 
+function mcd() {
+    if [ -d $1 ]; then
+        echo "$1 exists"
+    else
+        mkdir -p $1
+        echo "$1 created"
+    fi
+    cd $1
+}
+
 function kk() {
   local kroot=~/.kube/konfigs
   local konfigs=$('ls' -A $kroot)
