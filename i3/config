@@ -264,7 +264,7 @@ mode "flameshot (gui, screen, full)" {
 }
 bindsym $mod+Shift+s mode "flameshot (gui, screen, full)"
 
-set $setxkbmap "setxkbmap: [l]enovo, [e]rgodox, [k]bp v60, lo[g]itech"
+set $setxkbmap "setxkbmap: [l]enovo, [e]rgodox, [k]bp v60"
 mode $setxkbmap {
     bindsym l exec "setxkbmap -layout us,us \
                 -variant ,rus \
@@ -290,17 +290,9 @@ mode $setxkbmap {
                 -option 'grp:caps_toggle' \
                 -option 'grp_led:caps' \
                 -option 'misc:typo' \
-                -option 'lv3:ralt_switch_multikey' \
                 -option 'ctrl:swap_lalt_lctl' \
-                "
-    bindsym g exec "setxkbmap -layout us,us \
-                -variant ,rus \
-                -option \
-                -option 'grp:caps_toggle' \
-                -option 'grp_led:caps' \
-                -option 'misc:typo' \
                 -option 'lv3:ralt_switch_multikey' \
-                -option 'ctrl:swap_lalt_lctl' \
+                -option 'compose:menu' \
                 "
 
     bindsym Return mode "default"
