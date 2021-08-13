@@ -203,7 +203,8 @@ mode "$mode_system" {
 bindsym $mod+Shift+e mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+set $mode_resize Resize: use $mod+rmouse, ↑↓←→ or $up $down $left $right
+mode "$mode_resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -226,7 +227,7 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "$mode_resize"
 
 mode "wallpaper" {
     bindsym d exec variety --trash
