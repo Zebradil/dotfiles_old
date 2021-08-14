@@ -83,6 +83,7 @@ This function should only modify configuration layer settings."
              semantic
              spell-checking
              syntax-checking
+             systemd
              (terraform :variables terraform-auto-format-on-save t)
              themes-megapack
              (treemacs :variables
