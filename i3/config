@@ -203,7 +203,8 @@ mode "$mode_system" {
 bindsym $mod+Shift+e mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+set $mode_resize Resize: use $mod+rmouse, ↑↓←→ or $up $down $left $right
+mode "$mode_resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -226,7 +227,7 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "$mode_resize"
 
 mode "wallpaper" {
     bindsym d exec variety --trash
@@ -264,7 +265,7 @@ mode "flameshot (gui, screen, full)" {
 }
 bindsym $mod+Shift+s mode "flameshot (gui, screen, full)"
 
-set $setxkbmap "setxkbmap: [l]enovo, [e]rgodox, [k]bp v60, lo[g]itech"
+set $setxkbmap "setxkbmap: [l]enovo, [e]rgodox, [k]bp v60"
 mode $setxkbmap {
     bindsym l exec "setxkbmap -layout us,us \
                 -variant ,rus \
@@ -290,17 +291,9 @@ mode $setxkbmap {
                 -option 'grp:caps_toggle' \
                 -option 'grp_led:caps' \
                 -option 'misc:typo' \
-                -option 'lv3:ralt_switch_multikey' \
                 -option 'ctrl:swap_lalt_lctl' \
-                "
-    bindsym g exec "setxkbmap -layout us,us \
-                -variant ,rus \
-                -option \
-                -option 'grp:caps_toggle' \
-                -option 'grp_led:caps' \
-                -option 'misc:typo' \
                 -option 'lv3:ralt_switch_multikey' \
-                -option 'ctrl:swap_lalt_lctl' \
+                -option 'compose:menu' \
                 "
 
     bindsym Return mode "default"

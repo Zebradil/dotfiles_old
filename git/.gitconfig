@@ -2,7 +2,6 @@
     ui = true
 [user]
     name = German Lashevich
-    email = german.lashevich@gmail.com
     signingkey = 3446FAE369C9A8B4
 [credential]
     helper = /usr/lib/git-core/git-credential-libsecret
