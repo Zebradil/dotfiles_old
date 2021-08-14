@@ -415,20 +415,24 @@ export FZFZ_SUBDIR_LIMIT=0
 export FZFZ_RECENT_DIRS_TOOL=fasd
 
 # Z and custom FZF wrapper around it
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-unalias z
-z() {
-  if [[ -z "$*" ]]; then
-    cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf +s --tac --preview ${FZF_DIRECTORY_PREVIEW_CMD})"
-  else
-    _last_z_args="$@"
-    _z "$@"
-  fi
-}
-zz() {
-  cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf -q "$_last_z_args")"
-}
-# +-----------
+if [[ -r "/usr/share/z/z.sh" ]]; then
+    source /usr/share/z/z.sh
+
+    unalias z
+
+    z() {
+      if [[ -z "$*" ]]; then
+        cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf +s --tac --preview ${FZF_DIRECTORY_PREVIEW_CMD})"
+      else
+        _last_z_args="$@"
+        _z "$@"
+      fi
+    }
+
+    zz() {
+      cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf -q "$_last_z_args")"
+    }
+fi
 
 if [ $commands[direnv] ]; then eval "$(direnv hook zsh)"; fi
 
