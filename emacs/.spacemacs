@@ -47,7 +47,10 @@ This function should only modify configuration layer settings."
              (docker :variables docker-dockerfile-backend 'lsp)
              emacs-lisp
              git
-             go
+             (go :variables go-backend 'lsp
+                 go-format-before-save t
+                 go-use-golangci-lint t
+                 go-tab-width 4)
              gtags
              helm
              (html :variables web-fmt-tool 'prettier)
