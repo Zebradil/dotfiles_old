@@ -9,3 +9,4 @@ zsh-users/zsh-history-substring-search
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 denysdovhan/spaceship-prompt
+zchee/zsh-completions
