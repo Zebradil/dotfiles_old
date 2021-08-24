@@ -69,7 +69,9 @@ This function should only modify configuration layer settings."
                  org-enable-github-support t
                  org-projectile-file "TODOs.org")
              (rust :variables rust-format-on-save t)
-             shell-scripts
+             (shell-scripts :variables
+                 shell-scripts-format-on-save t
+                 shell-scripts-backend 'lsp)
              spacemacs-editing
              spacemacs-org
              (php :variables php-backend 'lsp)
