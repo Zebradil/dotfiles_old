@@ -1,0 +1,9 @@
+[Unit]
+Description=Run export-org-custom-agenda every 30 minutes and on boot
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=30m
+
+[Install]
+WantedBy=timers.target

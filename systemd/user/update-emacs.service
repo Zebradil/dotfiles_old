@@ -1,0 +1,6 @@
+[Unit]
+Description=Pull changes from spacemacs git repository
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/git -C %h/.emacs.d pull

@@ -1,0 +1,8 @@
+[Unit]
+Description=Exports custom org agenda views
+After=emacs.service
+Requires=emacs.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/emacsclient -eval (org-batch-store-agenda-views)
