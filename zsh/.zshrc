@@ -377,6 +377,14 @@ fco_preview() {
   git checkout $(awk '{print $2}' <<<"$target" )
 }
 
+set_kubeconfig_var() {
+    local KUBECONFIG_DIR=~/.kube/config.d
+    if [ -d "$KUBECONFIG_DIR" ]; then
+        export KUBECONFIG=$(fd '\.ya?ml' "$KUBECONFIG_DIR" | xargs | tr ' ' ':')
+    fi
+}
+
+set_kubeconfig_var
 
 # +=========================+
 # | Autocompletion          |
